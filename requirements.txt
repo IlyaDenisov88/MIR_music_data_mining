@@ -1,0 +1,12 @@
+datasets
+librosa
+matplotlib
+numpy
+opensmile
+pandas
+scikit-learn
+torch
+torchmetrics
+torchaudio
+transformers
+comet-ml

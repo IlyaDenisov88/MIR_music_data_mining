@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Data Mining Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f4ef;
+      --ink: #1f2520;
+      --muted: #667064;
+      --panel: #ffffff;
+      --line: #d7d2c7;
+      --green: #2f6f58;
+      --teal: #167782;
+      --rose: #b84f62;
+      --amber: #bc7a25;
+      --blue: #496da8;
+      --shadow: 0 18px 45px rgba(31, 37, 32, .11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(47, 111, 88, .12), transparent 34%),
+        linear-gradient(315deg, rgba(184, 79, 98, .11), transparent 34%),
+        var(--bg);
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .hero {
+      min-height: 310px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .76);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(36px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: 0;
+      max-width: 850px;
+    }
+
+    .lead {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      min-height: 112px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    main {
+      display: grid;
+      gap: 22px;
+    }
+
+    section {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .82);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.45;
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px;
+      min-height: 142px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--accent);
+    }
+
+    .step b {
+      display: block;
+      margin: 12px 0 8px;
+      font-size: 16px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.42;
+      font-size: 14px;
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .lab {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 15px;
+      min-height: 205px;
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+      font: inherit;
+    }
+
+    .lab[aria-pressed="true"] {
+      outline: 3px solid color-mix(in srgb, var(--accent), transparent 55%);
+      border-color: var(--accent);
+    }
+
+    .lab small {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .lab h3 {
+      margin: 10px 0;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .lab p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .detail {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .detail-panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 18px;
+      min-height: 280px;
+    }
+
+    .detail-panel h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .detail-panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      padding: 7px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--accent), white 90%);
+    }
+
+    .bars {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr) 54px;
+      gap: 10px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .bar-track {
+      height: 13px;
+      background: #ece7dd;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: var(--value);
+      background: var(--accent);
+      border-radius: inherit;
+    }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .artifact {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 15px;
+      min-height: 128px;
+    }
+
+    .artifact b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .artifact p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.42;
+      font-size: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .timeline-item span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    footer {
+      padding: 26px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      header,
+      .detail,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline,
+      .lab-grid,
+      .matrix {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding-top: 14px;
+      }
+
+      .hero,
+      section {
+        padding: 16px;
+      }
+
+      .stats,
+      .pipeline,
+      .lab-grid,
+      .matrix {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">AI portfolio / Music Information Retrieval</div>
+          <h1>Music Data Mining</h1>
+          <p class="lead">Единая витрина пяти лабораторных работ по вычислительному музыковедению: сигнал, признаки, классическое ML, нейросети и генерация музыки.</p>
+        </div>
+        <nav class="links" aria-label="Project links">
+          <a class="chip" href="../README.md">README</a>
+          <a class="chip" href="../ВычМуз/ЛР3/lab3_genre_classification_ml.ipynb">ЛР3 notebook</a>
+          <a class="chip" href="../ВычМуз/ЛР5/lab5_neural_networks.ipynb">ЛР5 notebook</a>
+          <a class="chip" href="../ВычМуз/c-rnn-gan-sample11.mp3">GAN sample</a>
+        </nav>
+      </div>
+      <div class="stats" aria-label="Project facts">
+        <div class="stat"><strong>5</strong><span>лабораторных работ, собранных в один проект</span></div>
+        <div class="stat"><strong>10</strong><span>жанров GTZAN для классификации музыки</span></div>
+        <div class="stat"><strong>400</strong><span>PCA-компонент дают около 0.95 explained variance</span></div>
+        <div class="stat"><strong>21</strong><span>MIDI-вариант Pop2Piano в папке composers</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="section-head">
+          <h2>Pipeline</h2>
+          <p>Проект можно читать как сквозной ML-пайплайн: от физики аудиосигнала до моделей, метрик и генерации.</p>
+        </div>
+        <div class="pipeline">
+          <article class="step" style="--accent: var(--green)">
+            <span>01</span>
+            <b>Signal</b>
+            <p>Дискретизация, гармонические колебания, синтез WAV, чтение MIDI.</p>
+          </article>
+          <article class="step" style="--accent: var(--teal)">
+            <span>02</span>
+            <b>Features</b>
+            <p>Спектрограмма, mel-spectrogram, MFCC и openSMILE descriptors.</p>
+          </article>
+          <article class="step" style="--accent: var(--blue)">
+            <span>03</span>
+            <b>Algorithms</b>
+            <p>ZCR, FFT, autocorrelation, AMDF, onset detection, beat tracking.</p>
+          </article>
+          <article class="step" style="--accent: var(--rose)">
+            <span>04</span>
+            <b>Models</b>
+            <p>k-NN, Logistic Regression, SVM, Decision Tree, PyTorch MLP.</p>
+          </article>
+          <article class="step" style="--accent: var(--amber)">
+            <span>05</span>
+            <b>Generation</b>
+            <p>Pop2Piano, MusicGen, c-RNN-GAN and generated MIDI/audio artifacts.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Labs Explorer</h2>
+          <p>Выбери лабораторную, чтобы увидеть ее вклад в портфолио и AI-навыки, которые она демонстрирует.</p>
+        </div>
+        <div class="lab-grid" id="labButtons"></div>
+        <div class="detail">
+          <div class="detail-panel">
+            <h3 id="labTitle"></h3>
+            <p id="labText"></p>
+            <div class="tags" id="labTags"></div>
+          </div>
+          <div class="detail-panel">
+            <h3>Skill Coverage</h3>
+            <div class="bars" id="skillBars"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>Portfolio Artifacts</h2>
+          <p>Что стоит показывать приемной комиссии или прикладывать к описанию проекта.</p>
+        </div>
+        <div class="matrix">
+          <article class="artifact">
+            <b>Feature Engineering</b>
+            <p>openSMILE feature cache and acoustic descriptors from audio fragments.</p>
+          </article>
+          <article class="artifact">
+            <b>Model Evaluation</b>
+            <p>Confusion matrices and weighted metrics for genre classification experiments.</p>
+          </article>
+          <article class="artifact">
+            <b>Neural Checkpoints</b>
+            <p>Saved PyTorch models: basic MLP and batch-size experiment.</p>
+          </article>
+          <article class="artifact">
+            <b>Generated Music</b>
+            <p>21 Pop2Piano MIDI outputs plus c-RNN-GAN audio sample.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="split">
+        <div>
+          <div class="section-head">
+            <h2>ML Track</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item"><span>GTZAN</span><p>1000 треков, 10 жанров, 30 секунд, mono 22050 Hz.</p></div>
+            <div class="timeline-item"><span>OpenSMILE</span><p>Извлечены функциональные акустические признаки для обучения моделей.</p></div>
+            <div class="timeline-item"><span>PCA</span><p>Проверены 100, 200, 300 и 400 компонент; 400 компонент дают около 0.95 explained variance.</p></div>
+            <div class="timeline-item"><span>Models</span><p>Сравнивались k-NN, Logistic Regression, SVM и Decision Tree.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="section-head">
+            <h2>DL Track</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item"><span>PyTorch</span><p>Полносвязные нейросети для классификации жанров.</p></div>
+            <div class="timeline-item"><span>Logging</span><p>Эксперименты проектировались с Comet ML: параметры, loss и validation metrics.</p></div>
+            <div class="timeline-item"><span>Checkpoints</span><p>Сохранены веса базовой модели и варианта с batch size 8.</p></div>
+            <div class="timeline-item"><span>GenAI</span><p>Отдельный блок исследует Pop2Piano, MusicGen и GAN-подходы.</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Репозиторий оформлен как портфолио-проект для магистратуры по ИИ: важен не только результат отдельных лабораторных, но и сквозная логика исследования музыкальных данных.
+    </footer>
+  </div>
+
+  <script>
+    const labs = [
+      {
+        id: "ЛР1",
+        accent: "var(--green)",
+        title: "Signal Processing",
+        short: "Звук, дискретизация, гармоники, MIDI.",
+        text: "Базовый слой проекта: аудиосигнал как временной ряд, частота дискретизации, генерация гармонических колебаний, чтение MIDI и синтез простой монофонической мелодии.",
+        tags: ["DSP", "WAV", "MIDI", "synthesis"],
+        skills: { DSP: 95, Features: 35, ML: 10, DL: 0, Generation: 58 }
+      },
+      {
+        id: "ЛР2",
+        accent: "var(--teal)",
+        title: "Acoustic Features",
+        short: "Спектрограммы, MFCC, pitch detection.",
+        text: "Извлечение акустических признаков и сравнение алгоритмов определения высоты: ZCR, FFT, autocorrelation и AMDF на разных инструментах.",
+        tags: ["librosa", "MFCC", "ZCR", "FFT", "AMDF"],
+        skills: { DSP: 88, Features: 92, ML: 15, DL: 0, Generation: 10 }
+      },
+      {
+        id: "ЛР3",
+        accent: "var(--blue)",
+        title: "Classical ML",
+        short: "GTZAN, openSMILE, PCA, classifiers.",
+        text: "Классификация музыкальных жанров на GTZAN: подготовка признаков через openSMILE, снижение размерности PCA и сравнение нескольких классических моделей.",
+        tags: ["GTZAN", "openSMILE", "PCA", "SVM", "LogReg"],
+        skills: { DSP: 35, Features: 88, ML: 96, DL: 0, Generation: 0 }
+      },
+      {
+        id: "ЛР4",
+        accent: "var(--rose)",
+        title: "MIR Systems",
+        short: "Onsets, tempo, beat tracking, covers.",
+        text: "Сборка MIR-системы: onset detection, tempo estimation, beat tracking, pitch detection и генерация пиано-каверов через Pop2Piano.",
+        tags: ["onset detection", "tempo", "beat tracking", "Pop2Piano", "MusicGen"],
+        skills: { DSP: 80, Features: 65, ML: 30, DL: 55, Generation: 90 }
+      },
+      {
+        id: "ЛР5",
+        accent: "var(--amber)",
+        title: "Neural Networks",
+        short: "PyTorch MLP, metrics, checkpoints.",
+        text: "Нейросетевой блок: несколько полносвязных архитектур для классификации жанров, обучение, метрики, confusion matrix, логирование и сохранение checkpoint-ов.",
+        tags: ["PyTorch", "MLP", "torchmetrics", "Comet ML", "checkpoints"],
+        skills: { DSP: 25, Features: 70, ML: 55, DL: 95, Generation: 10 }
+      }
+    ];
+
+    const labButtons = document.getElementById("labButtons");
+    const labTitle = document.getElementById("labTitle");
+    const labText = document.getElementById("labText");
+    const labTags = document.getElementById("labTags");
+    const skillBars = document.getElementById("skillBars");
+
+    function selectLab(index) {
+      const lab = labs[index];
+      document.documentElement.style.setProperty("--active-accent", lab.accent);
+
+      [...labButtons.children].forEach((button, buttonIndex) => {
+        button.setAttribute("aria-pressed", buttonIndex === index ? "true" : "false");
+      });
+
+      labTitle.textContent = `${lab.id}: ${lab.title}`;
+      labText.textContent = lab.text;
+      labTags.innerHTML = "";
+      lab.tags.forEach((tag) => {
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.style.setProperty("--accent", lab.accent);
+        span.textContent = tag;
+        labTags.appendChild(span);
+      });
+
+      skillBars.innerHTML = "";
+      Object.entries(lab.skills).forEach(([name, value]) => {
+        const row = document.createElement("div");
+        row.className = "bar-row";
+        row.innerHTML = `
+          <span>${name}</span>
+          <div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--value: ${value}%; --accent: ${lab.accent}"></div></div>
+          <span>${value}%</span>
+        `;
+        skillBars.appendChild(row);
+      });
+    }
+
+    labs.forEach((lab, index) => {
+      const button = document.createElement("button");
+      button.className = "lab";
+      button.type = "button";
+      button.style.setProperty("--accent", lab.accent);
+      button.setAttribute("aria-pressed", "false");
+      button.innerHTML = `<small>${lab.id}</small><h3>${lab.title}</h3><p>${lab.short}</p>`;
+      button.addEventListener("click", () => selectLab(index));
+      labButtons.appendChild(button);
+    });
+
+    selectLab(2);
+  </script>
+</body>
+</html>
