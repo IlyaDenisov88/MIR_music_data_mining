@@ -11,13 +11,13 @@
 
 ## Showcase
 
-Витрина проекта устроена как интерактивный рассказ по лабораторным:
+Витрина проекта устроена как медиагалерея по лабораторным:
 
-- **ЛР1:** мини-синтезатор нот в браузере и пример сгенерированного piano audio.
-- **ЛР2:** сравнение pitch detection подходов и аудиофрагменты flute/violin.
-- **ЛР3:** интерфейс классификатора жанров на логике `GTZAN -> openSMILE -> PCA -> model`.
-- **ЛР4:** MIR-блок с vocal/easy piano фрагментами, onset/tempo/beat tracking и генерацией.
-- **ЛР5:** карта нейросетевого эксперимента: PyTorch, метрики, логирование, checkpoint-и.
+- **ЛР1:** мини-синтезатор нот, графики сигналов и сгенерированный piano audio.
+- **ЛР2:** графики spectrum/MFCC/pitch detection и аудиофрагменты flute/violin.
+- **ЛР3:** confusion matrix и визуальные результаты классификации жанров.
+- **ЛР4:** onset/tempo/beat tracking, score generation и vocal/easy piano audio.
+- **ЛР5:** графики обучения, validation metrics, confusion matrix и схемы экспериментов.
 
 ## Project Story
 
@@ -43,7 +43,7 @@
 ## Highlights
 
 - **Full AI pipeline:** signal processing, acoustic descriptors, feature engineering, supervised learning, neural networks and generation.
-- **Interactive portfolio page:** note synthesis, lab explorer, genre-classification view and audio artifacts.
+- **Interactive media showcase:** note synthesis, notebook plots, audio artifacts and generated-music examples.
 - **Dataset:** GTZAN, 1000 tracks, 10 genres, 30 seconds per track, 22050 Hz mono audio.
 - **Feature extraction:** spectrograms, mel-spectrograms, MFCC and openSMILE descriptors.
 - **Classical ML:** k-NN, Logistic Regression, SVM, Decision Tree, PCA experiments.
@@ -57,6 +57,7 @@
 ├── docs/
 │   ├── assets/
 │   │   ├── audio/
+│   │   ├── images/
 │   │   └── portfolio-overview.svg
 │   └── index.html
 ├── ВычМуз/

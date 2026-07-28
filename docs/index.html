@@ -11,14 +11,13 @@
       --ink: #20251f;
       --muted: #687066;
       --panel: #fffdf8;
-      --soft: #ebe5d8;
       --line: #d5cdbc;
+      --soft: #ebe5d8;
       --green: #2e6f58;
       --teal: #177481;
       --blue: #486aa7;
       --rose: #b84f62;
       --amber: #b57423;
-      --violet: #6d5aa9;
       --shadow: 0 18px 50px rgba(32, 37, 31, .12);
     }
 
@@ -37,40 +36,36 @@
       letter-spacing: 0;
     }
 
+    button {
+      font: inherit;
+    }
+
     a {
       color: inherit;
     }
 
-    button,
-    select {
-      font: inherit;
-    }
-
     .page {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1260px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 28px 0 44px;
+      padding: 26px 0 42px;
     }
 
     .hero {
-      min-height: 540px;
       display: grid;
       grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
-      gap: 22px;
-      align-items: stretch;
-      margin-bottom: 22px;
+      gap: 18px;
+      margin-bottom: 18px;
     }
 
-    .hero-copy,
-    .sound-lab,
-    section {
+    .panel {
       border: 1px solid var(--line);
-      background: rgba(255, 253, 248, .86);
+      background: rgba(255, 253, 248, .9);
       box-shadow: var(--shadow);
     }
 
-    .hero-copy {
-      padding: 30px;
+    .intro {
+      min-height: 405px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -85,94 +80,56 @@
     }
 
     h1 {
-      margin: 18px 0 14px;
-      font-size: clamp(44px, 8vw, 92px);
+      margin: 16px 0 14px;
+      font-size: clamp(44px, 8vw, 88px);
       line-height: .92;
       letter-spacing: 0;
-      max-width: 760px;
     }
 
     .lead {
+      max-width: 740px;
       margin: 0;
-      max-width: 720px;
       color: var(--muted);
-      font-size: 19px;
-      line-height: 1.55;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
-    .hero-actions {
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       border: 1px solid var(--line);
       background: var(--panel);
-      color: var(--muted);
       border-radius: 999px;
-      padding: 10px 14px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .stat {
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .7);
-      padding: 14px;
-      min-height: 100px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 34px;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat span {
+      padding: 9px 13px;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
+      font-size: 14px;
+      text-decoration: none;
     }
 
-    .sound-lab {
+    .note-box {
       padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 405px;
       overflow: hidden;
     }
 
-    .sound-lab h2 {
-      margin: 8px 0 8px;
+    .note-box h2 {
+      margin: 8px 0;
       font-size: 28px;
     }
 
-    .sound-lab p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
     .wave {
-      height: 150px;
-      margin: 28px 0 20px;
-      position: relative;
+      height: 136px;
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.42));
-      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.44));
+      margin: 18px 0;
     }
 
     .wave svg {
@@ -185,256 +142,96 @@
       display: grid;
       grid-template-columns: repeat(8, minmax(0, 1fr));
       gap: 8px;
-      margin-top: 18px;
     }
 
-    .key {
-      min-height: 78px;
+    .key,
+    .tab,
+    .thumb-button {
       border: 1px solid var(--line);
       background: var(--panel);
       color: var(--ink);
       cursor: pointer;
     }
 
+    .key {
+      min-height: 72px;
+    }
+
     .key:active,
     .key.playing {
-      background: color-mix(in srgb, var(--green), white 80%);
       border-color: var(--green);
+      background: color-mix(in srgb, var(--green), white 82%);
     }
 
-    main {
+    .tabs {
       display: grid;
-      gap: 22px;
-    }
-
-    section {
-      padding: 22px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
       margin-bottom: 18px;
     }
 
-    h2 {
-      margin: 0;
-      font-size: 26px;
-      letter-spacing: 0;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 600px;
-      line-height: 1.45;
-    }
-
-    .story {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .story-step {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      padding: 14px;
-      min-height: 170px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .story-step::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 6px;
-      background: var(--accent);
-    }
-
-    .story-step small {
-      display: block;
-      margin-top: 8px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .story-step b {
-      display: block;
-      margin: 10px 0 8px;
-    }
-
-    .story-step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.42;
-    }
-
-    .showcase {
-      display: grid;
-      grid-template-columns: 290px minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .lab-list {
-      display: grid;
-      gap: 8px;
-      align-content: start;
-    }
-
-    .lab-button {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      padding: 13px;
+    .tab {
+      min-height: 76px;
       text-align: left;
-      color: inherit;
-      cursor: pointer;
-      min-height: 78px;
+      padding: 12px;
     }
 
-    .lab-button[aria-pressed="true"] {
+    .tab[aria-pressed="true"] {
       border-color: var(--accent);
       outline: 3px solid color-mix(in srgb, var(--accent), transparent 62%);
     }
 
-    .lab-button small {
+    .tab small {
       color: var(--accent);
-      font-weight: 700;
-    }
-
-    .lab-button b {
       display: block;
-      margin-top: 5px;
+      font-weight: 700;
+      margin-bottom: 5px;
     }
 
-    .lab-stage {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      min-height: 525px;
-      padding: 20px;
+    .tab b {
+      display: block;
+    }
+
+    .stage {
       display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      grid-template-columns: 300px minmax(0, 1fr);
       gap: 18px;
+      align-items: start;
     }
 
-    .lab-copy h3 {
-      margin: 0 0 10px;
+    .lab-info {
+      padding: 18px;
+      position: sticky;
+      top: 18px;
+    }
+
+    .lab-info h2 {
+      margin: 10px 0 12px;
       font-size: 28px;
     }
 
-    .lab-copy p {
+    .lab-info p {
       margin: 0 0 14px;
       color: var(--muted);
-      line-height: 1.52;
+      line-height: 1.45;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 14px 0;
-    }
-
-    .tag {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 9px;
-      color: var(--muted);
-      background: color-mix(in srgb, var(--accent), white 88%);
-      font-size: 13px;
-    }
-
-    .notebook-link {
-      display: inline-flex;
-      margin-top: 10px;
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .demo-panel {
-      border: 1px solid var(--line);
-      background: #fbf8ef;
-      padding: 16px;
-      min-height: 385px;
-      display: grid;
-      align-content: start;
-      gap: 14px;
-    }
-
-    .demo-title {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      font-weight: 700;
-    }
-
-    .demo-title span {
-      color: var(--accent);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-    }
-
-    .meter-grid {
+    .audio-stack {
       display: grid;
       gap: 10px;
-    }
-
-    .meter-row {
-      display: grid;
-      grid-template-columns: 92px minmax(0, 1fr) 54px;
-      gap: 10px;
-      align-items: center;
-      font-size: 14px;
-    }
-
-    .track {
-      height: 13px;
-      background: var(--soft);
-      overflow: hidden;
-      border-radius: 999px;
-    }
-
-    .fill {
-      height: 100%;
-      width: var(--value);
-      background: var(--accent);
-      border-radius: inherit;
-    }
-
-    .note-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .mini-note {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      min-height: 58px;
-      cursor: pointer;
-    }
-
-    .audio-grid {
-      display: grid;
-      gap: 10px;
+      margin-top: 12px;
     }
 
     .audio-card {
       border: 1px solid var(--line);
       background: var(--panel);
-      padding: 12px;
+      padding: 11px;
     }
 
     .audio-card b {
       display: block;
       margin-bottom: 8px;
+      font-size: 14px;
     }
 
     audio {
@@ -442,132 +239,147 @@
       display: block;
     }
 
-    .classifier {
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-      gap: 18px;
-    }
-
-    .sample-picker {
-      display: grid;
-      gap: 8px;
-    }
-
-    .sample-button {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      min-height: 54px;
-      padding: 10px;
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .sample-button[aria-pressed="true"] {
-      border-color: var(--blue);
-      outline: 3px solid rgba(72, 106, 167, .22);
-    }
-
-    .confusion {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 5px;
-      margin-top: 12px;
-    }
-
-    .cell {
-      min-height: 44px;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--blue), white var(--lightness));
-      display: grid;
-      place-items: center;
-      font-size: 12px;
-      color: var(--ink);
-    }
-
-    .artifact-grid {
+    .media-wall {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
     }
 
-    .artifact {
+    .media-card {
       border: 1px solid var(--line);
       background: var(--panel);
-      padding: 15px;
-      min-height: 145px;
+      min-height: 170px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .artifact b {
-      display: block;
-      margin-bottom: 8px;
+    .media-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      background: #f8f4ea;
+      border-bottom: 1px solid var(--line);
+      cursor: zoom-in;
     }
 
-    .artifact p {
-      margin: 0;
+    .media-card figcaption {
+      padding: 10px 11px;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
+      font-size: 13px;
+      line-height: 1.35;
     }
 
-    .artifact a {
+    .spotlight {
+      grid-column: span 2;
+    }
+
+    .spotlight img {
+      aspect-ratio: 16 / 9;
+    }
+
+    .notebook-link {
       display: inline-flex;
       margin-top: 12px;
-      color: var(--green);
+      color: var(--accent);
       font-weight: 700;
       text-decoration: none;
     }
 
-    footer {
-      padding: 26px 0 0;
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(32, 37, 31, .82);
+      border: 0;
+      padding: 18px;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-inner {
+      max-width: min(1120px, 100%);
+      max-height: min(760px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .modal img {
+      display: block;
+      max-width: 100%;
+      max-height: 680px;
+      object-fit: contain;
+    }
+
+    .modal-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
       color: var(--muted);
-      line-height: 1.5;
       font-size: 14px;
     }
 
-    @media (max-width: 980px) {
+    .modal button {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    footer {
+      padding-top: 24px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1050px) {
       .hero,
-      .showcase,
-      .lab-stage,
-      .classifier {
+      .stage {
         grid-template-columns: 1fr;
       }
 
-      .story,
-      .artifact-grid {
+      .lab-info {
+        position: static;
+      }
+
+      .media-wall {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 680px) {
       .page {
-        width: min(100% - 20px, 1180px);
+        width: min(100% - 20px, 1260px);
         padding-top: 14px;
       }
 
-      .hero-copy,
-      .sound-lab,
-      section,
-      .lab-stage {
+      .intro,
+      .note-box,
+      .lab-info {
         padding: 16px;
       }
 
-      .stats,
-      .story,
-      .artifact-grid {
+      .tabs,
+      .media-wall {
         grid-template-columns: 1fr;
       }
 
-      .section-head {
-        display: block;
-      }
-
-      .section-head p {
-        margin-top: 8px;
-      }
-
-      .keyboard,
-      .note-grid {
+      .keyboard {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .spotlight {
+        grid-column: span 1;
       }
     }
   </style>
@@ -575,169 +387,255 @@
 <body>
   <div class="page">
     <header class="hero">
-      <div class="hero-copy">
+      <div class="intro panel">
         <div>
-          <div class="eyebrow">AI portfolio / Music Information Retrieval</div>
+          <div class="eyebrow">Music Information Retrieval / AI portfolio</div>
           <h1>Music Data Mining</h1>
-          <p class="lead">Один проект из пяти лабораторных: от озвучки MIDI-нот и акустических признаков до классификации жанров, нейросетей и генерации музыки.</p>
-          <div class="hero-actions">
-            <a class="chip" href="#labs">Лабораторные</a>
-            <a class="chip" href="#classifier">Классификация</a>
-            <a class="chip" href="#artifacts">Артефакты</a>
+          <p class="lead">Медиавитрина лабораторных: графики из ноутбуков, аудиофрагменты, синтез нот, классификация жанров и генеративные результаты. Текста минимум, основное — посмотреть и послушать.</p>
+          <div class="chips">
             <a class="chip" href="https://github.com/IlyaDenisov88/MIR_music_data_mining">GitHub</a>
+            <a class="chip" href="#labs">Лабораторные</a>
+            <a class="chip" href="assets/audio/c-rnn-gan-sample11.mp3">GAN sample</a>
           </div>
-        </div>
-        <div class="stats">
-          <div class="stat"><strong>5</strong><span>лабораторных как единый MIR-пайплайн</span></div>
-          <div class="stat"><strong>10</strong><span>жанров GTZAN для классификации</span></div>
-          <div class="stat"><strong>400</strong><span>PCA-компонент, около 0.95 explained variance</span></div>
-          <div class="stat"><strong>21</strong><span>вариант Pop2Piano MIDI</span></div>
         </div>
       </div>
 
-      <aside class="sound-lab" aria-label="Interactive note synthesizer">
+      <aside class="note-box panel" aria-label="Note synthesizer">
         <div>
           <div class="eyebrow">ЛР1 / озвучка нот</div>
           <h2>Нажми ноту</h2>
-          <p>В первой лабораторной сигнал собирался из частот, гармоник и MIDI-событий. Здесь мини-версия той идеи прямо в браузере.</p>
         </div>
         <div class="wave">
-          <svg viewBox="0 0 520 150" preserveAspectRatio="none" aria-hidden="true">
-            <path id="wavePath" d="M0 75 C 40 15, 70 135, 110 75 S 180 15, 220 75 S 290 135, 330 75 S 400 15, 440 75 S 500 135, 520 75" fill="none" stroke="#2e6f58" stroke-width="5" stroke-linecap="round"/>
-            <line x1="0" y1="75" x2="520" y2="75" stroke="#d5cdbc" stroke-width="1"/>
+          <svg viewBox="0 0 520 136" preserveAspectRatio="none" aria-hidden="true">
+            <path id="wavePath" d="M0 68 C 40 18, 70 118, 110 68 S 180 18, 220 68 S 290 118, 330 68 S 400 18, 440 68 S 500 118, 520 68" fill="none" stroke="#2e6f58" stroke-width="5" stroke-linecap="round"/>
+            <line x1="0" y1="68" x2="520" y2="68" stroke="#d5cdbc" stroke-width="1"/>
           </svg>
         </div>
-        <div class="keyboard" id="keyboard" aria-label="Synth keyboard"></div>
+        <div class="keyboard" id="keyboard"></div>
       </aside>
     </header>
 
-    <main>
-      <section>
-        <div class="section-head">
-          <h2>Проект как история</h2>
-          <p>Каждая лабораторная не живет отдельно: она добавляет слой к системе, которая понимает, анализирует и генерирует музыку.</p>
-        </div>
-        <div class="story">
-          <article class="story-step" style="--accent: var(--green)">
-            <small>ЛР1</small>
-            <b>Сначала звук</b>
-            <p>Разобрать WAV и MIDI, понять частоту, амплитуду, гармоники и синтезировать мелодию.</p>
-          </article>
-          <article class="story-step" style="--accent: var(--teal)">
-            <small>ЛР2</small>
-            <b>Потом признаки</b>
-            <p>Спектрограммы, MFCC и алгоритмы pitch detection показывают, как из звука сделать данные.</p>
-          </article>
-          <article class="story-step" style="--accent: var(--blue)">
-            <small>ЛР3</small>
-            <b>Дальше ML</b>
-            <p>openSMILE-признаки и GTZAN превращаются в задачу классификации музыкальных жанров.</p>
-          </article>
-          <article class="story-step" style="--accent: var(--rose)">
-            <small>ЛР4</small>
-            <b>MIR-система</b>
-            <p>Onset detection, tempo, beat tracking и Pop2Piano связывают анализ с музыкальной структурой.</p>
-          </article>
-          <article class="story-step" style="--accent: var(--amber)">
-            <small>ЛР5</small>
-            <b>Нейросети</b>
-            <p>PyTorch-модели, метрики, confusion matrix, checkpoint-и и логирование экспериментов.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="labs">
-        <div class="section-head">
-          <h2>Что было прикольного в каждой лабораторной</h2>
-          <p>Выбери лабораторную: справа меняется демо, артефакты и объяснение, почему это важно для AI-портфолио.</p>
-        </div>
-        <div class="showcase">
-          <div class="lab-list" id="labList"></div>
-          <div class="lab-stage">
-            <div class="lab-copy">
-              <div class="eyebrow" id="labEyebrow"></div>
-              <h3 id="labTitle"></h3>
-              <p id="labText"></p>
-              <div class="tags" id="labTags"></div>
-              <a class="notebook-link" id="labNotebook" href="#">Открыть notebook</a>
-            </div>
-            <div class="demo-panel">
-              <div class="demo-title"><b id="demoTitle"></b><span id="demoKind"></span></div>
-              <div id="demoContent"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="classifier">
-        <div class="section-head">
-          <h2>Классификация жанров как центральный ML-кейс</h2>
-          <p>ЛР3 и ЛР5 дают классический supervised learning сценарий: GTZAN -> openSMILE -> PCA -> модель -> метрики.</p>
-        </div>
-        <div class="classifier">
-          <div class="demo-panel">
-            <div class="demo-title"><b>Выбор трека</b><span>GTZAN</span></div>
-            <div class="sample-picker" id="samplePicker"></div>
-          </div>
-          <div class="demo-panel">
-            <div class="demo-title"><b id="predictionTitle">Genre probabilities</b><span>model view</span></div>
-            <div class="meter-grid" id="genreBars"></div>
-            <div class="confusion" id="confusionGrid" aria-label="Illustrative confusion matrix"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="artifacts">
-        <div class="section-head">
-          <h2>Живые артефакты</h2>
-          <p>То, что делает проект ощутимым: можно послушать исходные фрагменты, синтез и генеративный результат.</p>
-        </div>
-        <div class="artifact-grid">
-          <article class="artifact">
-            <b>Синтезированный звук</b>
-            <p>Пример из блока про сигнал, ноты, WAV и MIDI.</p>
-            <audio controls src="assets/audio/lab1-piano.wav"></audio>
-          </article>
-          <article class="artifact">
-            <b>Инструменты для pitch detection</b>
-            <p>Флейта и скрипка использовались для сравнения алгоритмов высоты.</p>
-            <audio controls src="assets/audio/lab2-flute.wav"></audio>
-          </article>
-          <article class="artifact">
-            <b>Vocal -> piano pipeline</b>
-            <p>Фрагменты из блока MIR-систем и генерации пиано-каверов.</p>
-            <audio controls src="assets/audio/lab4-vocal.wav"></audio>
-          </article>
-          <article class="artifact">
-            <b>Easy piano</b>
-            <p>Звуковой фрагмент для экспериментов с onset/beat/pitch.</p>
-            <audio controls src="assets/audio/lab4-easy-piano.wav"></audio>
-          </article>
-          <article class="artifact">
-            <b>c-RNN-GAN sample</b>
-            <p>Генеративный аудиофрагмент, дополняющий блок про модели генерации.</p>
-            <audio controls src="assets/audio/c-rnn-gan-sample11.mp3"></audio>
-          </article>
-          <article class="artifact">
-            <b>Notebooks and models</b>
-            <p>Все расчеты, чекпоинты и MIDI-результаты лежат в репозитории.</p>
-            <a href="https://github.com/IlyaDenisov88/MIR_music_data_mining">Открыть GitHub</a>
-          </article>
-        </div>
-      </section>
+    <main id="labs">
+      <div class="tabs" id="tabs"></div>
+      <div class="stage">
+        <aside class="lab-info panel">
+          <div class="eyebrow" id="labNumber"></div>
+          <h2 id="labTitle"></h2>
+          <p id="labLine"></p>
+          <div class="audio-stack" id="audioStack"></div>
+          <a class="notebook-link" id="notebookLink" href="#">Notebook</a>
+        </aside>
+        <section class="media-wall" id="mediaWall" aria-label="Notebook outputs gallery"></section>
+      </div>
     </main>
 
     <footer>
-      Music Data Mining Portfolio: единая витрина курса для магистратуры по ИИ, где музыкальные данные проходят полный путь от сигнала до моделей и генерации.
+      Витрина собирает результаты курса в один проект: звук -> признаки -> классификация -> MIR-система -> нейросети и генерация.
     </footer>
   </div>
 
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Image preview">
+    <div class="modal-inner">
+      <img id="modalImage" alt="">
+      <div class="modal-bar">
+        <span id="modalCaption"></span>
+        <button type="button" id="modalClose">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    const githubBase = "https://github.com/IlyaDenisov88/MIR_music_data_mining/blob/main/";
+    const imagePath = (name) => `assets/images/${name}`;
+    const audioPath = (name) => `assets/audio/${name}`;
+    const encodePath = (path) => path.split("/").map(encodeURIComponent).join("/");
+
+    const labs = [
+      {
+        id: "ЛР1",
+        title: "Звук, MIDI, синтез",
+        color: "var(--green)",
+        line: "Озвучка нот, формы сигналов, гармоники и MIDI-парсинг.",
+        notebook: "ВычМуз/ЛР1/lab1_signal_processing.ipynb",
+        audio: [
+          ["piano.wav", "lab1-piano.wav"]
+        ],
+        images: [
+          ["lab1-output-01.png", "Сигнал аудиофрагмента", true],
+          ["lab1-output-02.png", "Гармоническое колебание", false],
+          ["lab1-output-03.png", "Синтез с гармониками", false],
+          ["lab1-output-04.png", "Сгенерированная мелодия", false],
+          ["lab1-markdown-06.png", "MIDI / ноты", true],
+          ["lab1-markdown-03.png", "Схема сигнала", false],
+          ["lab1-markdown-04.png", "Гармоники", false],
+          ["lab1-markdown-05.png", "Музыкальная нотация", false]
+        ]
+      },
+      {
+        id: "ЛР2",
+        title: "Признаки и pitch detection",
+        color: "var(--teal)",
+        line: "Спектрограммы, MFCC, ZCR, FFT, autocorrelation и AMDF.",
+        notebook: "ВычМуз/ЛР2/lab2_acoustic_features_pitch_detection.ipynb",
+        audio: [
+          ["flute.wav", "lab2-flute.wav"],
+          ["violin.wav", "lab2-violin.wav"]
+        ],
+        images: [
+          ["lab2-output-03.png", "Спектрограмма / mel / MFCC", true],
+          ["lab2-output-04.png", "Pitch detection: piano", true],
+          ["lab2-output-05.png", "Pitch detection: violin", true],
+          ["lab2-output-06.png", "ZCR", false],
+          ["lab2-output-08.png", "FFT", false],
+          ["lab2-output-10.png", "Autocorrelation", false],
+          ["lab2-output-13.png", "AMDF", false],
+          ["lab2-output-18.png", "Итоговый pitch-график", false],
+          ["lab2-markdown-02.png", "Алгоритм pitch detection", true]
+        ]
+      },
+      {
+        id: "ЛР3",
+        title: "Классификация жанров",
+        color: "var(--blue)",
+        line: "GTZAN, openSMILE, PCA, SVM, Logistic Regression, Decision Tree.",
+        notebook: "ВычМуз/ЛР3/lab3_genre_classification_ml.ipynb",
+        audio: [],
+        images: [
+          ["lab3-output-03.png", "Confusion matrix: SVM", true],
+          ["lab3-output-04.png", "Confusion matrix: SVM + PCA", true],
+          ["lab3-output-05.png", "Confusion matrix: Logistic Regression", true],
+          ["lab3-output-07.png", "Confusion matrix: Decision Tree", false],
+          ["lab3-output-11.png", "Stratified split experiment", false],
+          ["lab3-output-13.png", "Tuned model matrix", false],
+          ["lab3-output-01.png", "PCA / explained variance", false],
+          ["lab3-output-02.png", "Feature space", false]
+        ]
+      },
+      {
+        id: "ЛР4",
+        title: "MIR-система и генерация",
+        color: "var(--rose)",
+        line: "Onset detection, tempo, beat tracking, Pop2Piano, MusicGen.",
+        notebook: "ВычМуз/ЛР4/lab4_mir_systems_generation.ipynb",
+        audio: [
+          ["vocal.wav", "lab4-vocal.wav"],
+          ["easy_piano.wav", "lab4-easy-piano.wav"],
+          ["c-rnn-gan sample", "c-rnn-gan-sample11.mp3"]
+        ],
+        images: [
+          ["lab4-output-10.png", "Music score generation", true],
+          ["lab4-output-01.png", "Local energy / onset", false],
+          ["lab4-output-02.png", "Onset detection", false],
+          ["lab4-output-03.png", "Tempo estimation", false],
+          ["lab4-output-04.png", "Beat tracking", false],
+          ["lab4-output-05.png", "Pitch result", false],
+          ["lab4-output-08.png", "Generated cover analysis", false],
+          ["lab4-markdown-01.png", "AMT pipeline", true],
+          ["lab4-markdown-02.png", "System diagram", false]
+        ]
+      },
+      {
+        id: "ЛР5",
+        title: "Нейросети",
+        color: "var(--amber)",
+        line: "PyTorch MLP, графики обучения, метрики, confusion matrix, checkpoint-и.",
+        notebook: "ВычМуз/ЛР5/lab5_neural_networks.ipynb",
+        audio: [],
+        images: [
+          ["lab5-output-02.png", "Train loss", false],
+          ["lab5-output-03.png", "Validation accuracy", false],
+          ["lab5-output-04.png", "Validation precision", false],
+          ["lab5-output-05.png", "Validation recall", false],
+          ["lab5-output-06.png", "Validation F1", false],
+          ["lab5-output-07.png", "Train accuracy", false],
+          ["lab5-output-08.png", "Confusion matrix", true],
+          ["lab5-markdown-03.png", "Neural network architecture", true],
+          ["lab5-markdown-04.png", "Experiment logging", true]
+        ]
+      }
+    ];
+
+    const tabs = document.getElementById("tabs");
+    const labNumber = document.getElementById("labNumber");
+    const labTitle = document.getElementById("labTitle");
+    const labLine = document.getElementById("labLine");
+    const audioStack = document.getElementById("audioStack");
+    const mediaWall = document.getElementById("mediaWall");
+    const notebookLink = document.getElementById("notebookLink");
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    const modalClose = document.getElementById("modalClose");
+
+    function renderLab(index) {
+      const lab = labs[index];
+      document.documentElement.style.setProperty("--accent", lab.color);
+      [...tabs.children].forEach((button, buttonIndex) => {
+        button.setAttribute("aria-pressed", buttonIndex === index ? "true" : "false");
+        button.style.setProperty("--accent", labs[buttonIndex].color);
+      });
+
+      labNumber.textContent = lab.id;
+      labNumber.style.color = lab.color;
+      labTitle.textContent = lab.title;
+      labLine.textContent = lab.line;
+      notebookLink.href = githubBase + encodePath(lab.notebook);
+      notebookLink.style.color = lab.color;
+
+      audioStack.innerHTML = lab.audio.map(([label, file]) => `
+        <div class="audio-card">
+          <b>${label}</b>
+          <audio controls preload="none" src="${audioPath(file)}"></audio>
+        </div>
+      `).join("");
+
+      mediaWall.innerHTML = lab.images.map(([file, caption, spotlight]) => `
+        <figure class="media-card ${spotlight ? "spotlight" : ""}">
+          <img loading="lazy" src="${imagePath(file)}" alt="${caption}" data-caption="${caption}">
+          <figcaption>${caption}</figcaption>
+        </figure>
+      `).join("");
+
+      mediaWall.querySelectorAll("img").forEach((img) => {
+        img.addEventListener("click", () => openModal(img.src, img.dataset.caption));
+      });
+    }
+
+    labs.forEach((lab, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "tab";
+      button.style.setProperty("--accent", lab.color);
+      button.setAttribute("aria-pressed", "false");
+      button.innerHTML = `<small>${lab.id}</small><b>${lab.title}</b>`;
+      button.addEventListener("click", () => renderLab(index));
+      tabs.appendChild(button);
+    });
+
+    function openModal(src, caption) {
+      modalImage.src = src;
+      modalImage.alt = caption;
+      modalCaption.textContent = caption;
+      modal.classList.add("open");
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modalImage.src = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeModal();
+    });
+
     const notes = [
       ["C4", 261.63], ["D4", 293.66], ["E4", 329.63], ["F4", 349.23],
       ["G4", 392.00], ["A4", 440.00], ["B4", 493.88], ["C5", 523.25]
     ];
-
     const keyboard = document.getElementById("keyboard");
     const wavePath = document.getElementById("wavePath");
     let audioContext;
@@ -764,8 +662,8 @@
 
       button.classList.add("playing");
       setTimeout(() => button.classList.remove("playing"), 220);
-      const tension = Math.round(18 + (frequency - 250) / 10);
-      wavePath.setAttribute("d", `M0 75 C 40 ${tension}, 70 ${150 - tension}, 110 75 S 180 ${tension}, 220 75 S 290 ${150 - tension}, 330 75 S 400 ${tension}, 440 75 S 500 ${150 - tension}, 520 75`);
+      const tension = Math.round(16 + (frequency - 250) / 11);
+      wavePath.setAttribute("d", `M0 68 C 40 ${tension}, 70 ${136 - tension}, 110 68 S 180 ${tension}, 220 68 S 290 ${136 - tension}, 330 68 S 400 ${tension}, 440 68 S 500 ${136 - tension}, 520 68`);
     }
 
     notes.forEach(([name, frequency]) => {
@@ -777,226 +675,7 @@
       keyboard.appendChild(button);
     });
 
-    const githubBase = "https://github.com/IlyaDenisov88/MIR_music_data_mining/blob/main/";
-
-    const labs = [
-      {
-        id: "ЛР1",
-        accent: "var(--green)",
-        title: "Озвучка нот и MIDI",
-        short: "Синтез звука из частот и гармоник",
-        text: "Здесь музыка начинается как сигнал: частота дискретизации, амплитуда, гармоники, чтение MIDI и генерация wav. Это фундамент всего проекта, потому что дальше модели работают уже с данными, извлеченными из звука.",
-        tags: ["WAV", "MIDI", "harmonics", "signal synthesis"],
-        notebook: "ВычМуз/ЛР1/lab1_signal_processing.ipynb",
-        demoTitle: "Озвучка нот",
-        demoKind: "web audio",
-        demo: "notes"
-      },
-      {
-        id: "ЛР2",
-        accent: "var(--teal)",
-        title: "Pitch detection",
-        short: "ZCR, FFT, autocorrelation, AMDF",
-        text: "Лаба показывает, как из аудио получить признаки: спектрограммы, mel-spectrogram, MFCC и высоту тона. Сравнение алгоритмов на разных инструментах делает проект похожим на настоящий MIR-инструмент.",
-        tags: ["librosa", "MFCC", "ZCR", "FFT", "AMDF"],
-        notebook: "ВычМуз/ЛР2/lab2_acoustic_features_pitch_detection.ipynb",
-        demoTitle: "Сравнение pitch-алгоритмов",
-        demoKind: "features",
-        demo: "pitch"
-      },
-      {
-        id: "ЛР3",
-        accent: "var(--blue)",
-        title: "Классификация жанров",
-        short: "GTZAN, openSMILE, PCA, SVM",
-        text: "Центральный ML-блок: 1000 треков GTZAN, 10 жанров, openSMILE-признаки, PCA и сравнение классических моделей. Это уже полноценная supervised learning задача.",
-        tags: ["GTZAN", "openSMILE", "PCA", "SVM", "LogReg"],
-        notebook: "ВычМуз/ЛР3/lab3_genre_classification_ml.ipynb",
-        demoTitle: "Псевдо-интерфейс классификатора",
-        demoKind: "ML",
-        demo: "classifier"
-      },
-      {
-        id: "ЛР4",
-        accent: "var(--rose)",
-        title: "MIR-система и генерация",
-        short: "Onsets, tempo, beat tracking, Pop2Piano",
-        text: "Тут проект становится системой: onset detection, tempo estimation, beat tracking, pitch detection и генерация пиано-каверов. Это мост между анализом сигнала и музыкальной структурой.",
-        tags: ["onset detection", "tempo", "beat tracking", "Pop2Piano", "MusicGen"],
-        notebook: "ВычМуз/ЛР4/lab4_mir_systems_generation.ipynb",
-        demoTitle: "Vocal / piano фрагменты",
-        demoKind: "MIR",
-        demo: "audio"
-      },
-      {
-        id: "ЛР5",
-        accent: "var(--amber)",
-        title: "Нейросети и эксперименты",
-        short: "PyTorch MLP, метрики, checkpoint-и",
-        text: "Финальный ML/DL слой: полносвязные нейросети для классификации жанров, логирование, графики обучения, confusion matrix и сохраненные модели.",
-        tags: ["PyTorch", "MLP", "torchmetrics", "Comet ML", "checkpoints"],
-        notebook: "ВычМуз/ЛР5/lab5_neural_networks.ipynb",
-        demoTitle: "Экспериментальная карта",
-        demoKind: "DL",
-        demo: "dl"
-      }
-    ];
-
-    const labList = document.getElementById("labList");
-    const labEyebrow = document.getElementById("labEyebrow");
-    const labTitle = document.getElementById("labTitle");
-    const labText = document.getElementById("labText");
-    const labTags = document.getElementById("labTags");
-    const labNotebook = document.getElementById("labNotebook");
-    const demoTitle = document.getElementById("demoTitle");
-    const demoKind = document.getElementById("demoKind");
-    const demoContent = document.getElementById("demoContent");
-
-    function encodePath(path) {
-      return path.split("/").map(encodeURIComponent).join("/");
-    }
-
-    function renderMeters(items, accent) {
-      return `<div class="meter-grid">${items.map(item => `
-        <div class="meter-row">
-          <span>${item.label}</span>
-          <div class="track"><div class="fill" style="--value: ${item.value}%; background: ${accent}"></div></div>
-          <span>${item.value}%</span>
-        </div>`).join("")}</div>`;
-    }
-
-    function renderDemo(lab) {
-      if (lab.demo === "notes") {
-        return `
-          <p>В notebook эта идея развернута в MIDI parsing и генерацию звука. Здесь короткая браузерная версия: частота + гармоники = слышимая нота.</p>
-          <div class="note-grid">
-            ${notes.slice(0, 8).map(([name, frequency]) => `<button class="mini-note" type="button" data-frequency="${frequency}" data-note="${name}">${name}</button>`).join("")}
-          </div>
-          <div class="audio-card"><b>Пример из ЛР1</b><audio controls src="assets/audio/lab1-piano.wav"></audio></div>
-        `;
-      }
-      if (lab.demo === "pitch") {
-        return `
-          <p>Сравнение не про “один правильный метод”, а про поведение алгоритмов на разных тембрах.</p>
-          ${renderMeters([
-            { label: "ZCR", value: 58 },
-            { label: "FFT", value: 72 },
-            { label: "Autocorr", value: 84 },
-            { label: "AMDF", value: 76 }
-          ], "#177481")}
-          <div class="audio-grid">
-            <div class="audio-card"><b>Flute sample</b><audio controls src="assets/audio/lab2-flute.wav"></audio></div>
-            <div class="audio-card"><b>Violin sample</b><audio controls src="assets/audio/lab2-violin.wav"></audio></div>
-          </div>
-        `;
-      }
-      if (lab.demo === "classifier") {
-        return `
-          <p>В ЛР3 классификация строится на openSMILE-признаках и PCA. Этот блок показывает, как это читается как пользовательский интерфейс модели.</p>
-          ${renderMeters([
-            { label: "blues", value: 16 },
-            { label: "classical", value: 8 },
-            { label: "jazz", value: 21 },
-            { label: "metal", value: 10 },
-            { label: "rock", value: 45 }
-          ], "#486aa7")}
-          <div class="confusion">${[18,42,80,34,58,70,24,48,88,38,54,72,26,66,92,33,50,76,44,84,62,30,56,78,96].map(v => `<div class="cell" style="--lightness: ${v}%">${100 - v}</div>`).join("")}</div>
-        `;
-      }
-      if (lab.demo === "audio") {
-        return `
-          <p>В MIR-блоке важны события во времени: атаки нот, темп, ритмическая сетка и затем переложение в piano-cover.</p>
-          <div class="audio-grid">
-            <div class="audio-card"><b>Vocal fragment</b><audio controls src="assets/audio/lab4-vocal.wav"></audio></div>
-            <div class="audio-card"><b>Easy piano fragment</b><audio controls src="assets/audio/lab4-easy-piano.wav"></audio></div>
-            <div class="audio-card"><b>c-RNN-GAN sample</b><audio controls src="assets/audio/c-rnn-gan-sample11.mp3"></audio></div>
-          </div>
-        `;
-      }
-      return `
-        <p>ЛР5 превращает предыдущий feature pipeline в нейросетевые эксперименты: архитектура, обучение, метрики, сохранение модели.</p>
-        ${renderMeters([
-          { label: "features", value: 70 },
-          { label: "training", value: 92 },
-          { label: "metrics", value: 86 },
-          { label: "logging", value: 64 },
-          { label: "checkpoints", value: 80 }
-        ], "#b57423")}
-        <div class="audio-card"><b>Saved checkpoints</b><p>basic.pth и batch_size8.pth сохранены в репозитории как итоговые артефакты обучения.</p></div>
-      `;
-    }
-
-    function selectLab(index) {
-      const lab = labs[index];
-      document.documentElement.style.setProperty("--accent", lab.accent);
-      [...labList.children].forEach((button, buttonIndex) => {
-        button.setAttribute("aria-pressed", buttonIndex === index ? "true" : "false");
-        button.style.setProperty("--accent", labs[buttonIndex].accent);
-      });
-
-      labEyebrow.textContent = `${lab.id} / ${lab.short}`;
-      labEyebrow.style.color = lab.accent;
-      labTitle.textContent = lab.title;
-      labText.textContent = lab.text;
-      labNotebook.href = githubBase + encodePath(lab.notebook);
-      labNotebook.style.color = lab.accent;
-      demoTitle.textContent = lab.demoTitle;
-      demoKind.textContent = lab.demoKind;
-      demoKind.style.color = lab.accent;
-      demoContent.innerHTML = renderDemo(lab);
-      labTags.innerHTML = lab.tags.map(tag => `<span class="tag" style="--accent: ${lab.accent}">${tag}</span>`).join("");
-
-      demoContent.querySelectorAll(".mini-note").forEach(button => {
-        button.addEventListener("click", () => playNote(button.dataset.note, Number(button.dataset.frequency), button));
-      });
-    }
-
-    labs.forEach((lab, index) => {
-      const button = document.createElement("button");
-      button.className = "lab-button";
-      button.type = "button";
-      button.style.setProperty("--accent", lab.accent);
-      button.setAttribute("aria-pressed", "false");
-      button.innerHTML = `<small>${lab.id}</small><b>${lab.title}</b>`;
-      button.addEventListener("click", () => selectLab(index));
-      labList.appendChild(button);
-    });
-
-    const classifierSamples = [
-      { name: "rock.00099", expected: "rock", values: [12, 5, 18, 7, 9, 14, 6, 8, 11, 78] },
-      { name: "classical.00042", expected: "classical", values: [4, 84, 8, 3, 2, 34, 2, 7, 4, 5] },
-      { name: "jazz.00018", expected: "jazz", values: [11, 18, 13, 6, 3, 76, 2, 8, 10, 17] }
-    ];
-    const genres = ["blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"];
-    const samplePicker = document.getElementById("samplePicker");
-    const genreBars = document.getElementById("genreBars");
-    const predictionTitle = document.getElementById("predictionTitle");
-    const confusionGrid = document.getElementById("confusionGrid");
-
-    function selectSample(index) {
-      const sample = classifierSamples[index];
-      [...samplePicker.children].forEach((button, buttonIndex) => {
-        button.setAttribute("aria-pressed", buttonIndex === index ? "true" : "false");
-      });
-      predictionTitle.textContent = `Prediction view: ${sample.name}`;
-      genreBars.innerHTML = renderMeters(genres.map((genre, i) => ({ label: genre, value: sample.values[i] })), "#486aa7");
-      confusionGrid.innerHTML = [18,42,80,34,58,70,24,48,88,38,54,72,26,66,92,33,50,76,44,84,62,30,56,78,96]
-        .map(v => `<div class="cell" style="--lightness: ${v}%">${100 - v}</div>`)
-        .join("");
-    }
-
-    classifierSamples.forEach((sample, index) => {
-      const button = document.createElement("button");
-      button.className = "sample-button";
-      button.type = "button";
-      button.setAttribute("aria-pressed", "false");
-      button.innerHTML = `<b>${sample.name}</b><br><span>expected: ${sample.expected}</span>`;
-      button.addEventListener("click", () => selectSample(index));
-      samplePicker.appendChild(button);
-    });
-
-    selectLab(0);
-    selectSample(0);
+    renderLab(0);
   </script>
 </body>
 </html>
