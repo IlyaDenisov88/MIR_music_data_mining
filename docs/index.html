@@ -270,6 +270,21 @@
       line-height: 1.35;
     }
 
+    .media-card figcaption b {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .media-card figcaption span {
+      display: block;
+    }
+
+    .media-card figcaption audio {
+      margin-top: 10px;
+    }
+
     .spotlight {
       grid-column: span 2;
     }
@@ -383,10 +398,10 @@
         <div>
           <div class="eyebrow">Music Information Retrieval / AI portfolio</div>
           <h1>Music Data Mining</h1>
-          <p class="lead">Медиавитрина лабораторных: графики из ноутбуков, аудиофрагменты, синтез нот, классификация жанров и генеративные результаты. Текста минимум, основное — посмотреть и послушать.</p>
+          <p class="lead">Медиавитрина проекта: графики, аудиофрагменты, синтез нот, классификация жанров и генеративные результаты. Текста минимум, основное — посмотреть и послушать.</p>
           <div class="chips">
             <a class="chip" href="https://github.com/IlyaDenisov88/MIR_music_data_mining">GitHub</a>
-            <a class="chip" href="#labs">Лабораторные</a>
+            <a class="chip" href="#sections">Разделы</a>
             <a class="chip" href="assets/audio/c-rnn-gan-sample11.mp3">GAN sample</a>
           </div>
         </div>
@@ -394,7 +409,7 @@
 
       <aside class="note-box panel" aria-label="Note synthesizer">
         <div>
-          <div class="eyebrow">ЛР1 / озвучка нот</div>
+          <div class="eyebrow">Раздел 1 / озвучка нот</div>
           <h2>Нажми ноту</h2>
         </div>
         <div class="wave">
@@ -407,7 +422,7 @@
       </aside>
     </header>
 
-    <main id="labs">
+    <main id="sections">
       <div class="tabs" id="tabs"></div>
       <div class="stage">
         <aside class="lab-info panel">
@@ -441,26 +456,71 @@
 
     const labs = [
       {
-        id: "ЛР1",
+        id: "Раздел 1",
         title: "Звук, MIDI, синтез",
         color: "var(--green)",
-        line: "Озвучка нот, формы сигналов, гармоники и MIDI-парсинг.",
+        line: "Переход от звуковой волны к простому музыкальному синтезу: исходный аудиосигнал, аккорд C-E-G, обертоны и мелодия, собранная из MIDI.",
         audio: [
-          ["piano.wav", "lab1-piano.wav"]
+          ["Исходный piano.wav", "lab1-piano.wav"],
+          ["C-E-G chord", "lab1-ceg-chord.wav"],
+          ["Signal with harmonics", "lab1-signal-with-harmonics.wav"],
+          ["Synthesized MIDI melody", "lab1-midi-melody.wav"]
         ],
         images: [
-          ["lab1-output-01.png", "Сигнал аудиофрагмента", true],
-          ["lab1-output-02.png", "Гармоническое колебание", false],
-          ["lab1-output-03.png", "Синтез с гармониками", false],
-          ["lab1-output-04.png", "Сгенерированная мелодия", false],
-          ["lab1-markdown-06.png", "MIDI / ноты", true],
-          ["lab1-markdown-03.png", "Схема сигнала", false],
-          ["lab1-markdown-04.png", "Гармоники", false],
-          ["lab1-markdown-05.png", "Музыкальная нотация", false]
+          {
+            file: "lab1-output-01.png",
+            title: "Исходный аудиосигнал",
+            description: "WAV-файл считывается как массив отсчетов: по нему видно амплитуду во времени, частоту дискретизации и длительность дорожки.",
+            audio: "lab1-piano.wav",
+            audioLabel: "piano.wav",
+            spotlight: true
+          },
+          {
+            file: "lab1-output-02.png",
+            title: "Аккорд C-E-G",
+            description: "Три синусоиды с частотами до, ми и соль суммируются в один сигнал: так получается простая озвучка нот.",
+            audio: "lab1-ceg-chord.wav",
+            audioLabel: "CEG chord"
+          },
+          {
+            file: "lab1-output-03.png",
+            title: "C-E-G с разными амплитудами",
+            description: "Те же ноты смешиваются с разной громкостью, поэтому меняется форма волны и ощущение тембра.",
+            audio: "lab1-ceg-balanced.wav",
+            audioLabel: "CEG weighted"
+          },
+          {
+            file: "lab1-output-05.svg",
+            title: "Signal with harmonics",
+            description: "К основной частоте добавляются обертоны: кратные частоты делают звук богаче, ближе к музыкальному инструменту.",
+            audio: "lab1-signal-with-harmonics.wav",
+            audioLabel: "harmonics"
+          },
+          {
+            file: "lab1-output-06.svg",
+            title: "Синтез мелодии из MIDI",
+            description: "MIDI-файл разбирается на ноты и длительности, затем каждая нота превращается в синусоидальный фрагмент и склеивается в мелодию.",
+            audio: "lab1-midi-melody.wav",
+            audioLabel: "MIDI melody",
+            spotlight: true
+          },
+          {
+            file: "lab1-output-07.svg",
+            title: "MIDI melody with harmonics",
+            description: "Та же MIDI-мелодия синтезируется уже с гармониками, поэтому дорожка звучит плотнее и менее искусственно.",
+            audio: "lab1-midi-melody-harmonics.wav",
+            audioLabel: "MIDI + harmonics"
+          },
+          {
+            file: "lab1-markdown-06.png",
+            title: "MIDI как последовательность нот",
+            description: "Нотная схема показывает, почему MIDI удобно разбирать как события: нота, начало звучания, конец звучания.",
+            spotlight: true
+          }
         ]
       },
       {
-        id: "ЛР2",
+        id: "Раздел 2",
         title: "Признаки и pitch detection",
         color: "var(--teal)",
         line: "Спектрограммы, MFCC, ZCR, FFT, autocorrelation и AMDF.",
@@ -481,7 +541,7 @@
         ]
       },
       {
-        id: "ЛР3",
+        id: "Раздел 3",
         title: "Классификация жанров",
         color: "var(--blue)",
         line: "GTZAN, openSMILE, PCA, SVM, Logistic Regression, Decision Tree.",
@@ -498,7 +558,7 @@
         ]
       },
       {
-        id: "ЛР4",
+        id: "Раздел 4",
         title: "MIR-система и генерация",
         color: "var(--rose)",
         line: "Onset detection, tempo, beat tracking, Pop2Piano, MusicGen.",
@@ -520,7 +580,7 @@
         ]
       },
       {
-        id: "ЛР5",
+        id: "Раздел 5",
         title: "Нейросети",
         color: "var(--amber)",
         line: "PyTorch MLP, графики обучения, метрики, confusion matrix, checkpoint-и.",
@@ -569,12 +629,24 @@
         </div>
       `).join("");
 
-      mediaWall.innerHTML = lab.images.map(([file, caption, spotlight]) => `
+      mediaWall.innerHTML = lab.images.map((item) => {
+        const file = Array.isArray(item) ? item[0] : item.file;
+        const title = Array.isArray(item) ? item[1] : item.title;
+        const description = Array.isArray(item) ? "" : item.description;
+        const spotlight = Array.isArray(item) ? item[2] : item.spotlight;
+        const audio = Array.isArray(item) ? "" : item.audio;
+        const audioLabel = Array.isArray(item) ? "" : item.audioLabel;
+        return `
         <figure class="media-card ${spotlight ? "spotlight" : ""}">
-          <img loading="lazy" src="${imagePath(file)}" alt="${caption}" data-caption="${caption}">
-          <figcaption>${caption}</figcaption>
+          <img loading="lazy" src="${imagePath(file)}" alt="${title}" data-caption="${title}">
+          <figcaption>
+            <b>${title}</b>
+            ${description ? `<span>${description}</span>` : ""}
+            ${audio ? `<audio controls preload="none" src="${audioPath(audio)}" aria-label="${audioLabel || title}"></audio>` : ""}
+          </figcaption>
         </figure>
-      `).join("");
+      `;
+      }).join("");
 
       mediaWall.querySelectorAll("img").forEach((img) => {
         img.addEventListener("click", () => openModal(img.src, img.dataset.caption));

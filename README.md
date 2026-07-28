@@ -4,20 +4,20 @@
 
 Портфолио-проект по факультативу **"Вычислительное музыковедение: модели и методы Music Data Mining"**.
 
-Репозиторий собирает пять лабораторных работ в один законченный AI/MIR-кейс: от озвучки нот и базовой обработки аудиосигнала до классификации жанров, нейросетевых экспериментов и генерации музыки.
+Репозиторий собирает пять тематических разделов в один законченный AI/MIR-кейс: от озвучки нот и базовой обработки аудиосигнала до классификации жанров, нейросетевых экспериментов и генерации музыки.
 
 **Live dashboard:** [ilyadenisov88.github.io/MIR_music_data_mining](https://ilyadenisov88.github.io/MIR_music_data_mining/)  
 Если страница еще не открывается, нужно включить GitHub Pages: `Settings -> Pages -> Deploy from a branch -> main / docs`.
 
 ## Showcase
 
-Витрина проекта устроена как медиагалерея по лабораторным:
+Витрина проекта устроена как медиагалерея по разделам:
 
-- **ЛР1:** мини-синтезатор нот, графики сигналов и сгенерированный piano audio.
-- **ЛР2:** графики spectrum/MFCC/pitch detection и аудиофрагменты flute/violin.
-- **ЛР3:** confusion matrix и визуальные результаты классификации жанров.
-- **ЛР4:** onset/tempo/beat tracking, score generation и vocal/easy piano audio.
-- **ЛР5:** графики обучения, validation metrics, confusion matrix и схемы экспериментов.
+- **Раздел 1:** мини-синтезатор нот, C-E-G chord, signal with harmonics и MIDI melody.
+- **Раздел 2:** графики spectrum/MFCC/pitch detection и аудиофрагменты flute/violin.
+- **Раздел 3:** confusion matrix и визуальные результаты классификации жанров.
+- **Раздел 4:** onset/tempo/beat tracking, score generation и vocal/easy piano audio.
+- **Раздел 5:** графики обучения, validation metrics, confusion matrix и схемы экспериментов.
 
 ## Project Story
 
@@ -30,15 +30,15 @@
 5. Проводить нейросетевые эксперименты в PyTorch и сохранять чекпоинты.
 6. Исследовать генеративные модели: Pop2Piano, MusicGen, c-RNN-GAN.
 
-## Labs
+## Sections
 
-| Lab | Topic | Main Result |
+| Section | Topic | Main Result |
 | --- | --- | --- |
-| ЛР1 | Работа со звуковыми сигналами | Синтез звука, гармоники, чтение MIDI, генерация простой мелодии |
-| ЛР2 | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF |
-| ЛР3 | Классическое ML для жанров | GTZAN, openSMILE, PCA, k-NN, Logistic Regression, SVM, Decision Tree |
-| ЛР4 | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
-| ЛР5 | Нейросети для музыкальных данных | PyTorch MLP, разные конфигурации сети, логирование, checkpoint-и |
+| Раздел 1 | Работа со звуковыми сигналами | Синтез звука, гармоники, чтение MIDI, генерация простой мелодии |
+| Раздел 2 | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF |
+| Раздел 3 | Классическое ML для жанров | GTZAN, openSMILE, PCA, k-NN, Logistic Regression, SVM, Decision Tree |
+| Раздел 4 | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
+| Раздел 5 | Нейросети для музыкальных данных | PyTorch MLP, разные конфигурации сети, логирование, checkpoint-и |
 
 ## Highlights
 
@@ -62,15 +62,7 @@
 │   └── index.html
 ├── _sources/
 │   └── ВычМуз/
-│       ├── ЛР1/
-│       ├── ЛР2/
-│       ├── ЛР3/
-│       ├── ЛР4/
-│       ├── ЛР5/
-│       ├── GAN.pptx
-│       ├── GAN 2.0 Денисов Илья.pptx
-│       ├── GAN текст.docx
-│       └── c-rnn-gan-sample11.mp3
+│       └── source notebooks, MIDI, audio, checkpoints and presentation materials
 ├── requirements.txt
 └── README.md
 ```
@@ -78,10 +70,10 @@
 ## Data And Artifacts
 
 - **GTZAN**: 1000 audio tracks, 10 genres, 30 seconds per track, 22050 Hz mono audio.
-- **Feature cache**: `_sources/ВычМуз/ЛР3/smile_features.npy`.
-- **Neural checkpoints**: `_sources/ВычМуз/ЛР5/models/basic.pth`, `_sources/ВычМуз/ЛР5/models/batch_size8.pth`.
-- **Generated MIDI**: `_sources/ВычМуз/ЛР4/composers/midi_result1.mid` ... `midi_result21.mid`.
-- **Audio examples**: piano, violin, flute, vocal and generated c-RNN-GAN sample.
+- **Feature cache**: openSMILE descriptors for genre classification.
+- **Neural checkpoints**: saved PyTorch models from neural-network experiments.
+- **Generated MIDI**: composer-style MIDI fragments from generation experiments.
+- **Audio examples**: piano, C-E-G chord, harmonics, MIDI melody, violin, flute, vocal and generated c-RNN-GAN sample.
 
 ## Tech Stack
 
@@ -91,7 +83,7 @@ Python, NumPy, pandas, matplotlib, librosa, openSMILE, scikit-learn, PyTorch, to
 
 The repository is useful in two modes:
 
-1. **GitHub Pages dashboard** - the main reviewer-facing showcase with audio, plots and lab highlights.
+1. **GitHub Pages dashboard** - the main reviewer-facing showcase with audio, plots and section highlights.
 2. **GitHub README** - quick portfolio overview and project context.
 
 The original notebooks are kept in `_sources/ВычМуз/` as source materials, but the intended way to review the project is the live dashboard.
