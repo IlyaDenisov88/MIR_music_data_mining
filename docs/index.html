@@ -402,7 +402,7 @@
           <div class="chips">
             <a class="chip" href="https://github.com/IlyaDenisov88/MIR_music_data_mining">GitHub</a>
             <a class="chip" href="#sections">Разделы</a>
-            <a class="chip" href="assets/audio/c-rnn-gan-sample11.mp3">GAN sample</a>
+            <a class="chip" href="assets/audio/c-rnn-gan-sample11.mp3">GAN-сэмпл</a>
           </div>
         </div>
       </div>
@@ -459,18 +459,18 @@
         id: "Раздел 1",
         title: "Звук, MIDI, синтез",
         color: "var(--green)",
-        line: "Переход от звуковой волны к простому музыкальному синтезу: исходный аудиосигнал, аккорд C-E-G, обертоны и мелодия, собранная из MIDI.",
+        line: "Цель раздела - научиться воспроизводить музыку и рисовать звуковые сигналы: от WAV-дорожки до нот, обертонов и MIDI-мелодии.",
         audio: [
           ["Исходный piano.wav", "lab1-piano.wav"],
-          ["C-E-G chord", "lab1-ceg-chord.wav"],
-          ["Signal with harmonics", "lab1-signal-with-harmonics.wav"],
-          ["Synthesized MIDI melody", "lab1-midi-melody.wav"]
+          ["Аккорд C-E-G", "lab1-ceg-chord.wav"],
+          ["Сигнал с гармониками", "lab1-signal-with-harmonics.wav"],
+          ["Мелодия из MIDI", "lab1-midi-melody.wav"]
         ],
         images: [
           {
             file: "lab1-output-01.png",
             title: "Исходный аудиосигнал",
-            description: "WAV-файл считывается как массив отсчетов: по нему видно амплитуду во времени, частоту дискретизации и длительность дорожки.",
+            description: "WAV-файл превращается в массив отсчетов. По графику видно, как меняется амплитуда, а в плеере можно услышать тот же фрагмент.",
             audio: "lab1-piano.wav",
             audioLabel: "piano.wav",
             spotlight: true
@@ -478,38 +478,38 @@
           {
             file: "lab1-output-02.png",
             title: "Аккорд C-E-G",
-            description: "Три синусоиды с частотами до, ми и соль суммируются в один сигнал: так получается простая озвучка нот.",
+            description: "Ноты до, ми и соль задаются частотами и складываются как синусоиды. Так из формулы получается слышимый аккорд.",
             audio: "lab1-ceg-chord.wav",
-            audioLabel: "CEG chord"
+            audioLabel: "Аккорд C-E-G"
           },
           {
             file: "lab1-output-03.png",
             title: "C-E-G с разными амплитудами",
-            description: "Те же ноты смешиваются с разной громкостью, поэтому меняется форма волны и ощущение тембра.",
+            description: "У тех же трех нот меняются амплитуды. График остается суммой волн, но звук воспринимается иначе из-за баланса громкостей.",
             audio: "lab1-ceg-balanced.wav",
-            audioLabel: "CEG weighted"
+            audioLabel: "C-E-G с разными амплитудами"
           },
           {
             file: "lab1-output-05.svg",
-            title: "Signal with harmonics",
-            description: "К основной частоте добавляются обертоны: кратные частоты делают звук богаче, ближе к музыкальному инструменту.",
+            title: "Сигнал с гармониками",
+            description: "К основной частоте добавляются обертоны. Из-за кратных частот простой тон становится богаче и ближе к звучанию инструмента.",
             audio: "lab1-signal-with-harmonics.wav",
-            audioLabel: "harmonics"
+            audioLabel: "Сигнал с гармониками"
           },
           {
             file: "lab1-output-06.svg",
             title: "Синтез мелодии из MIDI",
-            description: "MIDI-файл разбирается на ноты и длительности, затем каждая нота превращается в синусоидальный фрагмент и склеивается в мелодию.",
+            description: "MIDI разбирается на события: какая нота звучит и сколько длится. Затем ноты генерируются как сигналы и склеиваются в мелодию.",
             audio: "lab1-midi-melody.wav",
-            audioLabel: "MIDI melody",
+            audioLabel: "Мелодия из MIDI",
             spotlight: true
           },
           {
             file: "lab1-output-07.svg",
-            title: "MIDI melody with harmonics",
-            description: "Та же MIDI-мелодия синтезируется уже с гармониками, поэтому дорожка звучит плотнее и менее искусственно.",
+            title: "MIDI-мелодия с гармониками",
+            description: "Та же мелодия синтезируется уже с обертонами. Это показывает, как тембр меняет ощущение музыки без изменения самих нот.",
             audio: "lab1-midi-melody-harmonics.wav",
-            audioLabel: "MIDI + harmonics"
+            audioLabel: "MIDI-мелодия с гармониками"
           },
           {
             file: "lab1-markdown-06.png",
@@ -523,78 +523,187 @@
         id: "Раздел 2",
         title: "Признаки и pitch detection",
         color: "var(--teal)",
-        line: "Спектрограммы, MFCC, ZCR, FFT, autocorrelation и AMDF.",
+        line: "Цель раздела - научиться описывать аудио численными признаками и находить высоту тона в одноголосных записях.",
         audio: [
           ["flute.wav", "lab2-flute.wav"],
           ["violin.wav", "lab2-violin.wav"]
         ],
         images: [
-          ["lab2-output-03.png", "Спектрограмма / mel / MFCC", true],
-          ["lab2-output-04.png", "Pitch detection: piano", true],
-          ["lab2-output-05.png", "Pitch detection: violin", true],
-          ["lab2-output-06.png", "ZCR", false],
-          ["lab2-output-08.png", "FFT", false],
-          ["lab2-output-10.png", "Autocorrelation", false],
-          ["lab2-output-13.png", "AMDF", false],
-          ["lab2-output-18.png", "Итоговый pitch-график", false],
-          ["lab2-markdown-02.png", "Алгоритм pitch detection", true]
+          {
+            file: "lab2-output-03.png",
+            title: "Спектрограмма, mel и MFCC",
+            description: "Один аудиофрагмент рассматривается в частотной области: обычная спектрограмма, mel-шкала и MFCC показывают разные уровни описания тембра.",
+            spotlight: true
+          },
+          {
+            file: "lab2-output-04.png",
+            title: "Pitch detection для фортепиано",
+            description: "Алгоритм оценивает основную частоту по окнам сигнала и строит траекторию высоты тона во времени.",
+            audio: "lab1-piano.wav",
+            audioLabel: "Фортепиано",
+            spotlight: true
+          },
+          {
+            file: "lab2-output-05.png",
+            title: "Pitch detection для скрипки",
+            description: "На скрипке высота менее дискретная, поэтому график лучше показывает, где алгоритм устойчив, а где ошибается.",
+            audio: "lab2-violin.wav",
+            audioLabel: "Скрипка"
+          },
+          {
+            file: "lab2-output-06.png",
+            title: "ZCR",
+            description: "ZCR считает пересечения сигнала через ноль. Это простой способ грубо оценивать частотность и шумность звука."
+          },
+          {
+            file: "lab2-output-08.png",
+            title: "FFT",
+            description: "FFT переводит окно сигнала в спектр, где максимум помогает искать основную частоту."
+          },
+          {
+            file: "lab2-output-13.png",
+            title: "AMDF",
+            description: "AMDF сравнивает сигнал с его сдвинутой копией: период проявляется как минимум функции различий."
+          }
         ]
       },
       {
         id: "Раздел 3",
         title: "Классификация жанров",
         color: "var(--blue)",
-        line: "GTZAN, openSMILE, PCA, SVM, Logistic Regression, Decision Tree.",
-        audio: [],
+        line: "Цель раздела - классифицировать музыкальные жанры GTZAN по признакам openSMILE и сравнить классические модели машинного обучения.",
+        audio: [
+          ["Пример трека из GTZAN", "lab3-gtzan-sample.wav"]
+        ],
         images: [
-          ["lab3-output-03.png", "Confusion matrix: SVM", true],
-          ["lab3-output-04.png", "Confusion matrix: SVM + PCA", true],
-          ["lab3-output-05.png", "Confusion matrix: Logistic Regression", true],
-          ["lab3-output-07.png", "Confusion matrix: Decision Tree", false],
-          ["lab3-output-11.png", "Stratified split experiment", false],
-          ["lab3-output-13.png", "Tuned model matrix", false],
-          ["lab3-output-01.png", "PCA / explained variance", false],
-          ["lab3-output-02.png", "Feature space", false]
+          {
+            file: "lab3-output-11.png",
+            title: "Баланс жанров в train/test",
+            description: "GTZAN содержит 10 жанров. Перед обучением проверяется разбиение, чтобы модель не выигрывала за счет перекоса классов.",
+            audio: "lab3-gtzan-sample.wav",
+            audioLabel: "Пример из GTZAN",
+            spotlight: true
+          },
+          {
+            file: "lab3-output-01.png",
+            title: "PCA для признаков openSMILE",
+            description: "openSMILE извлекает много акустических признаков. PCA сжимает пространство и помогает понять, сколько информации сохраняется."
+          },
+          {
+            file: "lab3-output-03.png",
+            title: "SVM: матрица ошибок",
+            description: "Матрица показывает, какие жанры модель путает между собой. Это понятнее одной метрики accuracy.",
+            spotlight: true
+          },
+          {
+            file: "lab3-output-05.png",
+            title: "Logistic Regression",
+            description: "Линейная модель используется как сильный базовый ориентир для сравнения с SVM и Decision Tree."
+          },
+          {
+            file: "lab3-output-07.png",
+            title: "Decision Tree",
+            description: "Дерево решений легче интерпретировать, но на музыкальных признаках оно чаще ошибается из-за сложных границ между жанрами."
+          },
+          {
+            file: "lab3-output-13.png",
+            title: "Подбор параметров",
+            description: "После GridSearch сравниваются улучшенные модели: цель - поднять качество и увидеть, какие жанры остаются сложными."
+          }
         ]
       },
       {
         id: "Раздел 4",
         title: "MIR-система и генерация",
         color: "var(--rose)",
-        line: "Onset detection, tempo, beat tracking, Pop2Piano, MusicGen.",
+        line: "Цель раздела - собрать набор MIR-инструментов: находить атаки и темп, оценивать высоту, получать ноты и генерировать музыку.",
         audio: [
           ["vocal.wav", "lab4-vocal.wav"],
           ["easy_piano.wav", "lab4-easy-piano.wav"],
-          ["c-rnn-gan sample", "c-rnn-gan-sample11.mp3"]
+          ["GAN-сэмпл", "c-rnn-gan-sample11.mp3"]
         ],
         images: [
-          ["lab4-output-10.png", "Music score generation", true],
-          ["lab4-output-01.png", "Local energy / onset", false],
-          ["lab4-output-02.png", "Onset detection", false],
-          ["lab4-output-03.png", "Tempo estimation", false],
-          ["lab4-output-04.png", "Beat tracking", false],
-          ["lab4-output-05.png", "Pitch result", false],
-          ["lab4-output-08.png", "Generated cover analysis", false],
-          ["lab4-markdown-01.png", "AMT pipeline", true],
-          ["lab4-markdown-02.png", "System diagram", false]
+          {
+            file: "lab4-markdown-01.png",
+            title: "Автоматическая транскрипция",
+            description: "Аудио переводится в музыкальное представление: система должна понять, какие ноты звучат и когда.",
+            audio: "lab4-vocal.wav",
+            audioLabel: "Вокальный фрагмент",
+            spotlight: true
+          },
+          {
+            file: "lab4-output-02.png",
+            title: "Onset detection",
+            description: "По энергии и ее производной находятся моменты атак - места, где начинается новый звук или удар."
+          },
+          {
+            file: "lab4-output-03.png",
+            title: "Tempo estimation",
+            description: "По найденным событиям оценивается темп: это мост от сырого сигнала к музыкальному ритму."
+          },
+          {
+            file: "lab4-output-04.png",
+            title: "Beat tracking",
+            description: "Beat tracking выстраивает регулярную сетку долей, чтобы понимать музыкальное время, а не только пики сигнала."
+          },
+          {
+            file: "lab4-output-10.png",
+            title: "Генерация нотной записи",
+            description: "Результат можно представить как score: это уже не волна, а музыкальная структура, пригодная для чтения и дальнейшей генерации.",
+            spotlight: true
+          },
+          {
+            file: "lab4-output-08.png",
+            title: "Pop2Piano и генерация",
+            description: "Модель превращает исходный материал в фортепианную версию, а генеративные эксперименты дополняют раздел новым аудио.",
+            audio: "lab4-easy-piano.wav",
+            audioLabel: "Фортепианная версия"
+          }
         ]
       },
       {
         id: "Раздел 5",
         title: "Нейросети",
         color: "var(--amber)",
-        line: "PyTorch MLP, графики обучения, метрики, confusion matrix, checkpoint-и.",
-        audio: [],
+        line: "Цель раздела - повторить задачу классификации жанров уже через нейросеть на PyTorch и отследить обучение по метрикам.",
+        audio: [
+          ["Пример трека из GTZAN", "lab5-gtzan-sample.wav"]
+        ],
         images: [
-          ["lab5-output-02.png", "Train loss", false],
-          ["lab5-output-03.png", "Validation accuracy", false],
-          ["lab5-output-04.png", "Validation precision", false],
-          ["lab5-output-05.png", "Validation recall", false],
-          ["lab5-output-06.png", "Validation F1", false],
-          ["lab5-output-07.png", "Train accuracy", false],
-          ["lab5-output-08.png", "Confusion matrix", true],
-          ["lab5-markdown-03.png", "Neural network architecture", true],
-          ["lab5-markdown-04.png", "Experiment logging", true]
+          {
+            file: "lab5-output-01.png",
+            title: "Разбиение GTZAN",
+            description: "Данные делятся на train, validation и test, чтобы отдельно обучать модель, подбирать параметры и проверять итоговое качество.",
+            audio: "lab5-gtzan-sample.wav",
+            audioLabel: "Пример из GTZAN"
+          },
+          {
+            file: "lab5-markdown-03.png",
+            title: "Архитектура сети",
+            description: "На вход подаются признаки openSMILE, дальше Feed-forward network предсказывает один из 10 музыкальных жанров.",
+            spotlight: true
+          },
+          {
+            file: "lab5-output-02.png",
+            title: "Loss на обучении",
+            description: "График loss показывает, учится ли сеть извлекать закономерности из признаков, а не просто угадывать жанры."
+          },
+          {
+            file: "lab5-output-03.png",
+            title: "Validation accuracy",
+            description: "Accuracy на validation отслеживает, переносится ли обучение на данные, которые сеть не видела в train."
+          },
+          {
+            file: "lab5-output-06.png",
+            title: "Validation F1",
+            description: "F1 важнее одной accuracy, потому что жанры могут путаться неравномерно и нужна сбалансированная оценка."
+          },
+          {
+            file: "lab5-output-08.png",
+            title: "Матрица ошибок нейросети",
+            description: "Confusion matrix показывает, какие жанры сеть распознает уверенно, а какие остаются похожими по акустическим признакам.",
+            spotlight: true
+          }
         ]
       }
     ];

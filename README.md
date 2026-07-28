@@ -6,20 +6,20 @@
 
 Репозиторий собирает пять тематических разделов в один законченный AI/MIR-кейс: от озвучки нот и базовой обработки аудиосигнала до классификации жанров, нейросетевых экспериментов и генерации музыки.
 
-**Live dashboard:** [ilyadenisov88.github.io/MIR_music_data_mining](https://ilyadenisov88.github.io/MIR_music_data_mining/)  
+**Витрина:** [ilyadenisov88.github.io/MIR_music_data_mining](https://ilyadenisov88.github.io/MIR_music_data_mining/)  
 Если страница еще не открывается, нужно включить GitHub Pages: `Settings -> Pages -> Deploy from a branch -> main / docs`.
 
-## Showcase
+## Витрина
 
 Витрина проекта устроена как медиагалерея по разделам:
 
-- **Раздел 1:** мини-синтезатор нот, C-E-G chord, signal with harmonics и MIDI melody.
-- **Раздел 2:** графики spectrum/MFCC/pitch detection и аудиофрагменты flute/violin.
-- **Раздел 3:** confusion matrix и визуальные результаты классификации жанров.
-- **Раздел 4:** onset/tempo/beat tracking, score generation и vocal/easy piano audio.
-- **Раздел 5:** графики обучения, validation metrics, confusion matrix и схемы экспериментов.
+- **Раздел 1:** воспроизведение музыки и визуализация сигналов: WAV, C-E-G, гармоники, MIDI.
+- **Раздел 2:** акустические признаки и pitch detection: спектрограммы, MFCC, ZCR, FFT, AMDF.
+- **Раздел 3:** классификация жанров GTZAN через openSMILE, PCA, SVM, Logistic Regression и Decision Tree.
+- **Раздел 4:** MIR-система: onset detection, tempo estimation, beat tracking, транскрипция и генерация.
+- **Раздел 5:** нейросетевая классификация жанров на PyTorch с графиками обучения и confusion matrix.
 
-## Project Story
+## История проекта
 
 Цель проекта - показать, что я умею работать с музыкальными данными как с полноценным AI-доменом:
 
@@ -30,27 +30,27 @@
 5. Проводить нейросетевые эксперименты в PyTorch и сохранять чекпоинты.
 6. Исследовать генеративные модели: Pop2Piano, MusicGen, c-RNN-GAN.
 
-## Sections
+## Разделы
 
-| Section | Topic | Main Result |
+| Раздел | Тема | Что показано |
 | --- | --- | --- |
 | Раздел 1 | Работа со звуковыми сигналами | Синтез звука, гармоники, чтение MIDI, генерация простой мелодии |
 | Раздел 2 | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF |
 | Раздел 3 | Классическое ML для жанров | GTZAN, openSMILE, PCA, k-NN, Logistic Regression, SVM, Decision Tree |
 | Раздел 4 | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
-| Раздел 5 | Нейросети для музыкальных данных | PyTorch MLP, разные конфигурации сети, логирование, checkpoint-и |
+| Раздел 5 | Нейросети для музыкальных данных | PyTorch, графики обучения, метрики, confusion matrix, checkpoint-и |
 
-## Highlights
+## Главное
 
-- **Full AI pipeline:** signal processing, acoustic descriptors, feature engineering, supervised learning, neural networks and generation.
-- **Interactive media showcase:** note synthesis, notebook plots, audio artifacts and generated-music examples.
-- **Dataset:** GTZAN, 1000 tracks, 10 genres, 30 seconds per track, 22050 Hz mono audio.
-- **Feature extraction:** spectrograms, mel-spectrograms, MFCC and openSMILE descriptors.
-- **Classical ML:** k-NN, Logistic Regression, SVM, Decision Tree, PCA experiments.
-- **Deep Learning:** PyTorch MLP models, metrics, confusion matrices and saved checkpoints.
-- **Generative AI:** Pop2Piano, MusicGen and c-RNN-GAN artifacts.
+- **Полный AI-пайплайн:** обработка сигнала, признаки, feature engineering, supervised learning, нейросети и генерация.
+- **Медиавитрина:** синтез нот, графики из расчетов, аудиоартефакты и примеры сгенерированной музыки.
+- **Датасет:** GTZAN, 1000 треков, 10 жанров, по 30 секунд, 22050 Hz mono WAV.
+- **Извлечение признаков:** спектрограммы, mel-spectrogram, MFCC и openSMILE descriptors.
+- **Классическое ML:** k-NN, Logistic Regression, SVM, Decision Tree и эксперименты с PCA.
+- **Нейросети:** PyTorch-модели, метрики, confusion matrix и сохраненные checkpoint-и.
+- **Генерация:** Pop2Piano, MusicGen и c-RNN-GAN.
 
-## Repository Structure
+## Структура
 
 ```text
 .
@@ -62,41 +62,41 @@
 │   └── index.html
 ├── _sources/
 │   └── ВычМуз/
-│       └── source notebooks, MIDI, audio, checkpoints and presentation materials
+│       └── исходные ноутбуки, MIDI, аудио, checkpoint-и и материалы презентаций
 ├── requirements.txt
 └── README.md
 ```
 
-## Data And Artifacts
+## Данные и артефакты
 
-- **GTZAN**: 1000 audio tracks, 10 genres, 30 seconds per track, 22050 Hz mono audio.
-- **Feature cache**: openSMILE descriptors for genre classification.
-- **Neural checkpoints**: saved PyTorch models from neural-network experiments.
-- **Generated MIDI**: composer-style MIDI fragments from generation experiments.
-- **Audio examples**: piano, C-E-G chord, harmonics, MIDI melody, violin, flute, vocal and generated c-RNN-GAN sample.
+- **GTZAN:** 1000 аудиотреков, 10 жанров, по 30 секунд, 22050 Hz mono WAV.
+- **Кэш признаков:** openSMILE descriptors для классификации жанров.
+- **Checkpoint-и:** сохраненные PyTorch-модели из нейросетевых экспериментов.
+- **Generated MIDI:** MIDI-фрагменты из экспериментов с генерацией.
+- **Audio examples:** piano, C-E-G, гармоники, MIDI-мелодия, violin, flute, vocal и c-RNN-GAN.
 
-## Tech Stack
+## Стек
 
 Python, NumPy, pandas, matplotlib, librosa, openSMILE, scikit-learn, PyTorch, torchmetrics, Hugging Face `datasets`, transformers, Comet ML.
 
-## How To View
+## Как смотреть
 
-The repository is useful in two modes:
+Репозиторий удобно смотреть в двух режимах:
 
-1. **GitHub Pages dashboard** - the main reviewer-facing showcase with audio, plots and section highlights.
-2. **GitHub README** - quick portfolio overview and project context.
+1. **GitHub Pages** - основная витрина для проверяющего: аудио, графики и краткая логика разделов.
+2. **GitHub README** - быстрый обзор проекта и контекст.
 
-The original notebooks are kept in `_sources/ВычМуз/` as source materials, but the intended way to review the project is the live dashboard.
+Исходные ноутбуки лежат в `_sources/ВычМуз/` как материалы проекта, но основной сценарий просмотра - живая витрина.
 
-To enable the dashboard on GitHub:
+Чтобы включить витрину на GitHub:
 
-1. Open repository settings.
-2. Go to `Pages`.
-3. Select `Deploy from a branch`.
-4. Choose branch `main` and folder `/docs`.
-5. Open `https://ilyadenisov88.github.io/MIR_music_data_mining/`.
+1. Открыть настройки репозитория.
+2. Перейти в `Pages`.
+3. Выбрать `Deploy from a branch`.
+4. Указать ветку `main` и папку `/docs`.
+5. Открыть `https://ilyadenisov88.github.io/MIR_music_data_mining/`.
 
-## Why This Fits An AI Portfolio
+## Почему это AI-портфолио
 
 Проект показывает полный цикл работы с неструктурированными данными:
 
