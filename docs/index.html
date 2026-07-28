@@ -525,6 +525,7 @@
         color: "var(--teal)",
         line: "Цель раздела - научиться описывать аудио численными признаками и находить высоту тона в одноголосных записях.",
         audio: [
+          ["piano.wav", "lab1-piano.wav"],
           ["flute.wav", "lab2-flute.wav"],
           ["violin.wav", "lab2-violin.wav"]
         ],
@@ -536,34 +537,43 @@
             spotlight: true
           },
           {
-            file: "lab2-output-04.png",
-            title: "Pitch detection для фортепиано",
-            description: "Алгоритм оценивает основную частоту по окнам сигнала и строит траекторию высоты тона во времени.",
+            file: "lab2-output-11.png",
+            title: "Фортепиано: pitch получился нестабильным",
+            description: "Для piano.wav методы расходятся: FFT дает медиану около 345 Hz, ZCR - около 545 Hz, autocorrelation - около 190 Hz. Это хороший пример, где один график без проверки методом может обмануть.",
             audio: "lab1-piano.wav",
             audioLabel: "Фортепиано",
             spotlight: true
           },
           {
-            file: "lab2-output-05.png",
-            title: "Pitch detection для скрипки",
-            description: "На скрипке высота менее дискретная, поэтому график лучше показывает, где алгоритм устойчив, а где ошибается.",
+            file: "lab2-output-15.png",
+            title: "Скрипка: сглаживание pitch",
+            description: "Для violin.wav после медианного фильтра траектория становится читаемее. FFT дает медиану около 237 Hz, autocorrelation - около 140 Hz: звук живой, поэтому оценка высоты плавает.",
             audio: "lab2-violin.wav",
-            audioLabel: "Скрипка"
+            audioLabel: "Скрипка",
+            spotlight: true
           },
           {
-            file: "lab2-output-06.png",
-            title: "ZCR",
-            description: "ZCR считает пересечения сигнала через ноль. Это простой способ грубо оценивать частотность и шумность звука."
+            file: "lab2-output-16.png",
+            title: "Флейта: самый понятный результат",
+            description: "Для flute.wav методы сходятся лучше всего: ZCR, FFT и autocorrelation дают примерно 1.1 kHz. На графике видно устойчивую линию после медианного фильтра.",
+            audio: "lab2-flute.wav",
+            audioLabel: "Флейта",
+            spotlight: true
           },
           {
             file: "lab2-output-08.png",
-            title: "FFT",
-            description: "FFT переводит окно сигнала в спектр, где максимум помогает искать основную частоту."
+            title: "ZCR",
+            description: "ZCR считает пересечения сигнала через ноль. Метод быстрый, но чувствителен к форме волны и обертонам, поэтому для piano.wav завышает оценку pitch."
           },
           {
             file: "lab2-output-13.png",
+            title: "FFT",
+            description: "FFT ищет максимум в спектре окна. Для flute.wav результат близок к другим методам - около 1.12 kHz, поэтому этот пример выглядит наиболее надежным."
+          },
+          {
+            file: "lab2-output-18.png",
             title: "AMDF",
-            description: "AMDF сравнивает сигнал с его сдвинутой копией: период проявляется как минимум функции различий."
+            description: "AMDF сравнивает сигнал с его сдвинутой копией. Для flute.wav медиана получается около 832 Hz: метод дает результат, но хуже совпадает с остальными оценками."
           }
         ]
       },

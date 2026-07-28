@@ -14,7 +14,7 @@
 Витрина проекта устроена как медиагалерея по разделам:
 
 - **Раздел 1:** воспроизведение музыки и визуализация сигналов: WAV, C-E-G, гармоники, MIDI.
-- **Раздел 2:** акустические признаки и pitch detection: спектрограммы, MFCC, ZCR, FFT, AMDF.
+- **Раздел 2:** акустические признаки и pitch detection: спектрограммы, MFCC, ZCR, FFT, AMDF и итоговые оценки pitch для piano/violin/flute.
 - **Раздел 3:** классификация жанров GTZAN через openSMILE, PCA, SVM, Logistic Regression и Decision Tree.
 - **Раздел 4:** MIR-система: onset detection, tempo estimation, beat tracking, транскрипция и генерация.
 - **Раздел 5:** нейросетевая классификация жанров на PyTorch с графиками обучения и confusion matrix.
