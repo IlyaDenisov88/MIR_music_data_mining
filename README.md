@@ -1,21 +1,23 @@
 # Music Data Mining Portfolio
 
+![Music Data Mining project overview](docs/assets/portfolio-overview.svg)
+
 Портфолио-проект по факультативу **"Вычислительное музыковедение: модели и методы Music Data Mining"**.
 
-Репозиторий собирает пять лабораторных работ по факультативу **"Вычислительное музыковедение: модели и методы Music Data Mining"** в один законченный AI/MIR-кейс: от базовой обработки аудиосигнала до классификации жанров, нейросетевых экспериментов и генерации музыки.
+Репозиторий собирает пять лабораторных работ в один законченный AI/MIR-кейс: от озвучки нот и базовой обработки аудиосигнала до классификации жанров, нейросетевых экспериментов и генерации музыки.
 
-## Dashboard
+**Live dashboard:** [ilyadenisov88.github.io/MIR_music_data_mining](https://ilyadenisov88.github.io/MIR_music_data_mining/)  
+Если страница еще не открывается, нужно включить GitHub Pages: `Settings -> Pages -> Deploy from a branch -> main / docs`.
 
-Открыть витрину проекта:
+## Showcase
 
-[docs/index.html](docs/index.html)
+Витрина проекта устроена как интерактивный рассказ по лабораторным:
 
-Dashboard показывает:
-
-- карту всех 5 лабораторных работ;
-- pipeline проекта: `audio -> features -> ML/DL -> generation`;
-- ключевые датасеты и артефакты;
-- интерактивное сравнение этапов, навыков и результатов.
+- **ЛР1:** мини-синтезатор нот в браузере и пример сгенерированного piano audio.
+- **ЛР2:** сравнение pitch detection подходов и аудиофрагменты flute/violin.
+- **ЛР3:** интерфейс классификатора жанров на логике `GTZAN -> openSMILE -> PCA -> model`.
+- **ЛР4:** MIR-блок с vocal/easy piano фрагментами, onset/tempo/beat tracking и генерацией.
+- **ЛР5:** карта нейросетевого эксперимента: PyTorch, метрики, логирование, checkpoint-и.
 
 ## Project Story
 
@@ -38,11 +40,24 @@ Dashboard показывает:
 | [ЛР4](ВычМуз/ЛР4/lab4_mir_systems_generation.ipynb) | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
 | [ЛР5](ВычМуз/ЛР5/lab5_neural_networks.ipynb) | Нейросети для музыкальных данных | PyTorch MLP, разные конфигурации сети, логирование, checkpoint-и |
 
+## Highlights
+
+- **Full AI pipeline:** signal processing, acoustic descriptors, feature engineering, supervised learning, neural networks and generation.
+- **Interactive portfolio page:** note synthesis, lab explorer, genre-classification view and audio artifacts.
+- **Dataset:** GTZAN, 1000 tracks, 10 genres, 30 seconds per track, 22050 Hz mono audio.
+- **Feature extraction:** spectrograms, mel-spectrograms, MFCC and openSMILE descriptors.
+- **Classical ML:** k-NN, Logistic Regression, SVM, Decision Tree, PCA experiments.
+- **Deep Learning:** PyTorch MLP models, metrics, confusion matrices and saved checkpoints.
+- **Generative AI:** Pop2Piano, MusicGen and c-RNN-GAN artifacts.
+
 ## Repository Structure
 
 ```text
 .
 ├── docs/
+│   ├── assets/
+│   │   ├── audio/
+│   │   └── portfolio-overview.svg
 │   └── index.html
 ├── ВычМуз/
 │   ├── ЛР1/
@@ -70,6 +85,21 @@ Dashboard показывает:
 
 Python, NumPy, pandas, matplotlib, librosa, openSMILE, scikit-learn, PyTorch, torchmetrics, Hugging Face `datasets`, transformers, Comet ML.
 
+## How To View
+
+The repository is useful in two modes:
+
+1. **GitHub README** - quick portfolio overview, project story and links to notebooks.
+2. **GitHub Pages dashboard** - interactive exploration of labs, skills and artifacts.
+
+To enable the dashboard on GitHub:
+
+1. Open repository settings.
+2. Go to `Pages`.
+3. Select `Deploy from a branch`.
+4. Choose branch `main` and folder `/docs`.
+5. Open `https://ilyadenisov88.github.io/MIR_music_data_mining/`.
+
 ## Why This Fits An AI Portfolio
 
 Проект показывает полный цикл работы с неструктурированными данными:
@@ -81,5 +111,3 @@ Python, NumPy, pandas, matplotlib, librosa, openSMILE, scikit-learn, PyTorch, to
 - метрики качества и confusion matrix;
 - deep learning experiments;
 - генеративные модели для музыки.
-
-
