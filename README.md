@@ -34,11 +34,11 @@
 
 | Lab | Topic | Main Result |
 | --- | --- | --- |
-| [ЛР1](ВычМуз/ЛР1/lab1_signal_processing.ipynb) | Работа со звуковыми сигналами | Синтез звука, гармоники, чтение MIDI, генерация простой мелодии |
-| [ЛР2](ВычМуз/ЛР2/lab2_acoustic_features_pitch_detection.ipynb) | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF |
-| [ЛР3](ВычМуз/ЛР3/lab3_genre_classification_ml.ipynb) | Классическое ML для жанров | GTZAN, openSMILE, PCA, k-NN, Logistic Regression, SVM, Decision Tree |
-| [ЛР4](ВычМуз/ЛР4/lab4_mir_systems_generation.ipynb) | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
-| [ЛР5](ВычМуз/ЛР5/lab5_neural_networks.ipynb) | Нейросети для музыкальных данных | PyTorch MLP, разные конфигурации сети, логирование, checkpoint-и |
+| ЛР1 | Работа со звуковыми сигналами | Синтез звука, гармоники, чтение MIDI, генерация простой мелодии |
+| ЛР2 | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF |
+| ЛР3 | Классическое ML для жанров | GTZAN, openSMILE, PCA, k-NN, Logistic Regression, SVM, Decision Tree |
+| ЛР4 | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
+| ЛР5 | Нейросети для музыкальных данных | PyTorch MLP, разные конфигурации сети, логирование, checkpoint-и |
 
 ## Highlights
 
@@ -90,8 +90,10 @@ Python, NumPy, pandas, matplotlib, librosa, openSMILE, scikit-learn, PyTorch, to
 
 The repository is useful in two modes:
 
-1. **GitHub README** - quick portfolio overview, project story and links to notebooks.
-2. **GitHub Pages dashboard** - interactive exploration of labs, skills and artifacts.
+1. **GitHub Pages dashboard** - the main reviewer-facing showcase with audio, plots and lab highlights.
+2. **GitHub README** - quick portfolio overview and project context.
+
+The original notebooks are kept in `ВычМуз/` as source materials, but the intended way to review the project is the live dashboard.
 
 To enable the dashboard on GitHub:
 

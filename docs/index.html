@@ -278,14 +278,6 @@
       aspect-ratio: 16 / 9;
     }
 
-    .notebook-link {
-      display: inline-flex;
-      margin-top: 12px;
-      color: var(--accent);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
     .modal {
       position: fixed;
       inset: 0;
@@ -423,9 +415,8 @@
           <h2 id="labTitle"></h2>
           <p id="labLine"></p>
           <div class="audio-stack" id="audioStack"></div>
-          <a class="notebook-link" id="notebookLink" href="#">Notebook</a>
         </aside>
-        <section class="media-wall" id="mediaWall" aria-label="Notebook outputs gallery"></section>
+        <section class="media-wall" id="mediaWall" aria-label="Media gallery"></section>
       </div>
     </main>
 
@@ -445,10 +436,8 @@
   </div>
 
   <script>
-    const githubBase = "https://github.com/IlyaDenisov88/MIR_music_data_mining/blob/main/";
     const imagePath = (name) => `assets/images/${name}`;
     const audioPath = (name) => `assets/audio/${name}`;
-    const encodePath = (path) => path.split("/").map(encodeURIComponent).join("/");
 
     const labs = [
       {
@@ -456,7 +445,6 @@
         title: "Звук, MIDI, синтез",
         color: "var(--green)",
         line: "Озвучка нот, формы сигналов, гармоники и MIDI-парсинг.",
-        notebook: "ВычМуз/ЛР1/lab1_signal_processing.ipynb",
         audio: [
           ["piano.wav", "lab1-piano.wav"]
         ],
@@ -476,7 +464,6 @@
         title: "Признаки и pitch detection",
         color: "var(--teal)",
         line: "Спектрограммы, MFCC, ZCR, FFT, autocorrelation и AMDF.",
-        notebook: "ВычМуз/ЛР2/lab2_acoustic_features_pitch_detection.ipynb",
         audio: [
           ["flute.wav", "lab2-flute.wav"],
           ["violin.wav", "lab2-violin.wav"]
@@ -498,7 +485,6 @@
         title: "Классификация жанров",
         color: "var(--blue)",
         line: "GTZAN, openSMILE, PCA, SVM, Logistic Regression, Decision Tree.",
-        notebook: "ВычМуз/ЛР3/lab3_genre_classification_ml.ipynb",
         audio: [],
         images: [
           ["lab3-output-03.png", "Confusion matrix: SVM", true],
@@ -516,7 +502,6 @@
         title: "MIR-система и генерация",
         color: "var(--rose)",
         line: "Onset detection, tempo, beat tracking, Pop2Piano, MusicGen.",
-        notebook: "ВычМуз/ЛР4/lab4_mir_systems_generation.ipynb",
         audio: [
           ["vocal.wav", "lab4-vocal.wav"],
           ["easy_piano.wav", "lab4-easy-piano.wav"],
@@ -539,7 +524,6 @@
         title: "Нейросети",
         color: "var(--amber)",
         line: "PyTorch MLP, графики обучения, метрики, confusion matrix, checkpoint-и.",
-        notebook: "ВычМуз/ЛР5/lab5_neural_networks.ipynb",
         audio: [],
         images: [
           ["lab5-output-02.png", "Train loss", false],
@@ -561,7 +545,6 @@
     const labLine = document.getElementById("labLine");
     const audioStack = document.getElementById("audioStack");
     const mediaWall = document.getElementById("mediaWall");
-    const notebookLink = document.getElementById("notebookLink");
     const modal = document.getElementById("modal");
     const modalImage = document.getElementById("modalImage");
     const modalCaption = document.getElementById("modalCaption");
@@ -579,9 +562,6 @@
       labNumber.style.color = lab.color;
       labTitle.textContent = lab.title;
       labLine.textContent = lab.line;
-      notebookLink.href = githubBase + encodePath(lab.notebook);
-      notebookLink.style.color = lab.color;
-
       audioStack.innerHTML = lab.audio.map(([label, file]) => `
         <div class="audio-card">
           <b>${label}</b>
