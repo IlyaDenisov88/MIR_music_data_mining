@@ -60,16 +60,17 @@
 │   │   ├── images/
 │   │   └── portfolio-overview.svg
 │   └── index.html
-├── ВычМуз/
-│   ├── ЛР1/
-│   ├── ЛР2/
-│   ├── ЛР3/
-│   ├── ЛР4/
-│   ├── ЛР5/
-│   ├── GAN.pptx
-│   ├── GAN 2.0 Денисов Илья.pptx
-│   ├── GAN текст.docx
-│   └── c-rnn-gan-sample11.mp3
+├── _sources/
+│   └── ВычМуз/
+│       ├── ЛР1/
+│       ├── ЛР2/
+│       ├── ЛР3/
+│       ├── ЛР4/
+│       ├── ЛР5/
+│       ├── GAN.pptx
+│       ├── GAN 2.0 Денисов Илья.pptx
+│       ├── GAN текст.docx
+│       └── c-rnn-gan-sample11.mp3
 ├── requirements.txt
 └── README.md
 ```
@@ -77,9 +78,9 @@
 ## Data And Artifacts
 
 - **GTZAN**: 1000 audio tracks, 10 genres, 30 seconds per track, 22050 Hz mono audio.
-- **Feature cache**: `ВычМуз/ЛР3/smile_features.npy`.
-- **Neural checkpoints**: `ВычМуз/ЛР5/models/basic.pth`, `ВычМуз/ЛР5/models/batch_size8.pth`.
-- **Generated MIDI**: `ВычМуз/ЛР4/composers/midi_result1.mid` ... `midi_result21.mid`.
+- **Feature cache**: `_sources/ВычМуз/ЛР3/smile_features.npy`.
+- **Neural checkpoints**: `_sources/ВычМуз/ЛР5/models/basic.pth`, `_sources/ВычМуз/ЛР5/models/batch_size8.pth`.
+- **Generated MIDI**: `_sources/ВычМуз/ЛР4/composers/midi_result1.mid` ... `midi_result21.mid`.
 - **Audio examples**: piano, violin, flute, vocal and generated c-RNN-GAN sample.
 
 ## Tech Stack
@@ -93,7 +94,7 @@ The repository is useful in two modes:
 1. **GitHub Pages dashboard** - the main reviewer-facing showcase with audio, plots and lab highlights.
 2. **GitHub README** - quick portfolio overview and project context.
 
-The original notebooks are kept in `ВычМуз/` as source materials, but the intended way to review the project is the live dashboard.
+The original notebooks are kept in `_sources/ВычМуз/` as source materials, but the intended way to review the project is the live dashboard.
 
 To enable the dashboard on GitHub:
 

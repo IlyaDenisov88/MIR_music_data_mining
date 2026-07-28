@@ -2,4 +2,5 @@ title: Music Data Mining Portfolio
 
 exclude:
   - "ВычМуз"
+  - "_sources"
   - "requirements.txt"
