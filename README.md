@@ -14,10 +14,10 @@
 Витрина проекта устроена как медиагалерея по разделам:
 
 - **Раздел 1:** воспроизведение музыки и визуализация сигналов: WAV, C-E-G, гармоники, MIDI.
-- **Раздел 2:** акустические признаки и pitch detection: флейта показана как лучший монофонический кейс, где ZCR/FFT/autocorrelation сходятся около 1.1 kHz.
+- **Раздел 2:** акустические признаки и pitch detection: флейта показана как лучший монофонический кейс, где ZCR/FFT/autocorrelation сходятся около 1.1 kHz, а извлеченный pitch озвучен обратно.
 - **Раздел 3:** классификация жанров GTZAN через openSMILE, PCA, SVM, Logistic Regression и Decision Tree.
-- **Раздел 4:** MIR-система: аудио -> onset detection -> tempo/beat tracking -> pitch detection -> score -> Pop2Piano/MusicGen.
-- **Раздел 5:** нейросетевая классификация жанров на PyTorch с графиками обучения и confusion matrix.
+- **Раздел 4:** MIR-система: аудио -> onset detection с кликами -> beat tracking как метроном -> озвученный pitch -> score -> Pop2Piano/MusicGen.
+- **Раздел 5:** нейросетевая классификация жанров на PyTorch: архитектура, loss, accuracy, Comet ML и confusion matrix без слабых пустых графиков.
 
 ## История проекта
 

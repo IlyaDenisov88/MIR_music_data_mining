@@ -561,6 +561,14 @@
             spotlight: true
           },
           {
+            file: "lab2-flute-pitch-sonification.svg",
+            title: "Флейта: сгенерированный pitch",
+            description: "Здесь pitch-траектория озвучена обратно как синусоидальный сигнал. Получается почти метрономически чистая высота: это слышимое подтверждение, что для монофонической флейты извлечение частоты сработало лучше всего.",
+            audio: "lab2-flute-pitch-autocorrelation.wav",
+            audioLabel: "Сгенерированный pitch флейты",
+            spotlight: true
+          },
+          {
             file: "lab2-output-08.png",
             title: "ZCR",
             description: "ZCR считает пересечения сигнала через ноль. Метод быстрый, но чувствителен к форме волны и обертонам, поэтому для piano.wav завышает оценку pitch."
@@ -644,19 +652,23 @@
           {
             file: "lab4-output-07.png",
             title: "2. Onset detection: найдены атаки",
-            description: "Сначала считается энергия сигнала, затем логарифм энергии и производная. Пики после half-wave rectification становятся моментами onset: в ноутбуке получился список времен атак вроде 0.25, 0.50, 0.75, 1.00 секунд."
+            description: "Сначала считается энергия сигнала, затем логарифм энергии и производная. Пики после half-wave rectification становятся моментами onset: в ноутбуке получился список времен атак вроде 0.25, 0.50, 0.75, 1.00 секунд.",
+            audio: "lab4-onset-clicks.wav",
+            audioLabel: "Клики onset detection"
           },
           {
             file: "lab4-output-08.png",
             title: "3. Tempo estimation и beat tracking",
             description: "По onset-событиям оценивается регулярная пульсация. В ноутбуке tempo estimation выводит значение 15.0, а beat tracking добавляет клики по найденной сетке долей.",
-            audio: "lab4-vocal.wav",
-            audioLabel: "Исходный фрагмент"
+            audio: "lab4-beat-clicks.wav",
+            audioLabel: "Метроном beat tracking"
           },
           {
-            file: "lab4-output-09.png",
+            file: "lab4-pitch-sonification.svg",
             title: "4. Pitch detection",
-            description: "После ритмического анализа применяется оценка высоты: сигнал режется на окна, для них ищется периодичность, а результат можно озвучить обратно как синтезированную pitch-траекторию."
+            description: "Пустую autocorrelation-картинку убрал из витрины. Вместо нее показана и озвучена итоговая pitch-траектория: сигнал режется на окна, оценивается высота, затем результат синтезируется обратно в звук.",
+            audio: "lab4-pitch-sonification.wav",
+            audioLabel: "Озвученная pitch-траектория"
           },
           {
             file: "lab4-output-10.png",
@@ -701,14 +713,14 @@
             description: "График loss показывает, учится ли сеть извлекать закономерности из признаков, а не просто угадывать жанры."
           },
           {
-            file: "lab5-output-03.png",
-            title: "Validation accuracy",
-            description: "Accuracy на validation отслеживает, переносится ли обучение на данные, которые сеть не видела в train."
+            file: "lab5-output-07.png",
+            title: "Accuracy на обучении",
+            description: "Вместо нескольких почти пустых validation-графиков оставлен более читаемый график роста качества на обучении: видно, как сеть постепенно подстраивается под признаки."
           },
           {
-            file: "lab5-output-06.png",
-            title: "Validation F1",
-            description: "F1 важнее одной accuracy, потому что жанры могут путаться неравномерно и нужна сбалансированная оценка."
+            file: "lab5-markdown-04.png",
+            title: "Логирование экспериментов",
+            description: "Comet ML использовался для фиксации параметров, метрик и сравнения запусков. Это важная часть нейросетевого эксперимента, а не только финальная картинка."
           },
           {
             file: "lab5-output-08.png",
