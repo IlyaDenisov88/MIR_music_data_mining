@@ -526,7 +526,10 @@
         line: "Цель раздела - извлечь высоту тона из монофонической флейты и сравнить четыре подхода: ZCR, FFT, autocorrelation и AMDF.",
         audio: [
           ["flute.wav", "lab2-flute.wav"],
-          ["Сгенерированный pitch флейты", "lab2-flute-pitch-autocorrelation.wav"]
+          ["Pitch через ZCR", "lab2-flute-pitch-zcr.wav"],
+          ["Pitch через FFT", "lab2-flute-pitch-fft.wav"],
+          ["Pitch через autocorrelation", "lab2-flute-pitch-autocorrelation.wav"],
+          ["Pitch через AMDF", "lab2-flute-pitch-amdf.wav"]
         ],
         images: [
           {
@@ -539,33 +542,38 @@
             file: "lab2-output-10.png",
             title: "ZCR: пересечения через ноль",
             description: "ZCR оценивает период по расстоянию между zero-crossings. На флейте траектория получается читаемой, потому что сигнал монофонический и не содержит аккордовой смеси.",
-            audio: "lab2-flute.wav",
-            audioLabel: "Флейта",
+            audio: "lab2-flute-pitch-zcr.wav",
+            audioLabel: "Сгенерированный pitch через ZCR",
             spotlight: true
           },
           {
             file: "lab2-output-13.png",
             title: "FFT: максимум спектра",
-            description: "FFT ищет самую выраженную частоту в каждом окне. Для flute.wav результат близок к другим методам - около 1.1 kHz."
+            description: "FFT ищет самую выраженную частоту в каждом окне. Для flute.wav результат близок к другим методам - около 1.1 kHz.",
+            audio: "lab2-flute-pitch-fft.wav",
+            audioLabel: "Сгенерированный pitch через FFT"
           },
           {
             file: "lab2-output-16.png",
             title: "Autocorrelation: лучшая траектория",
             description: "Autocorrelation ищет повторяемость сигнала через лаг. На монофонической флейте она дает самую устойчивую линию pitch после медианного фильтра.",
+            audio: "lab2-flute-pitch-autocorrelation.wav",
+            audioLabel: "Сгенерированный pitch через autocorrelation",
             spotlight: true
           },
           {
             file: "lab2-output-18.png",
             title: "AMDF: минимум различий",
-            description: "AMDF сравнивает сигнал со сдвинутой копией. Метод тоже извлекает pitch, но для флейты дает менее стабильную оценку, чем autocorrelation и FFT."
+            description: "AMDF сравнивает сигнал со сдвинутой копией. Метод тоже извлекает pitch, но для флейты дает менее стабильную оценку, чем autocorrelation и FFT.",
+            audio: "lab2-flute-pitch-amdf.wav",
+            audioLabel: "Сгенерированный pitch через AMDF"
           },
           {
-            file: "lab2-flute-pitch-sonification.svg",
-            title: "Итог: pitch флейты озвучен обратно",
-            description: "Извлеченная pitch-траектория превращена обратно в синусоидальный звук. Это слышимое подтверждение результата: для монофонической флейты высота извлекается лучше всего.",
+            file: "lab2-flute-pitch-autocorrelation.svg",
+            title: "Итоговая озвучка pitch",
+            description: "Все четыре метода превращают извлеченную траекторию обратно в звук. Самый чистый слуховой результат дает autocorrelation: высота звучит ровнее и ближе к исходной монофонической флейте.",
             audio: "lab2-flute-pitch-autocorrelation.wav",
-            audioLabel: "Сгенерированный pitch флейты",
-            spotlight: true
+            audioLabel: "Лучший вариант: autocorrelation"
           }
         ]
       },

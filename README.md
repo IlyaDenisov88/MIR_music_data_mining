@@ -14,7 +14,7 @@
 Витрина проекта устроена как медиагалерея по разделам:
 
 - **Раздел 1:** воспроизведение музыки и визуализация сигналов: WAV, C-E-G, гармоники, MIDI.
-- **Раздел 2:** pitch detection на монофонической флейте: ZCR, FFT, autocorrelation, AMDF и озвученный обратно pitch.
+- **Раздел 2:** pitch detection на монофонической флейте: ZCR, FFT, autocorrelation, AMDF и четыре озвученные pitch-траектории.
 - **Раздел 3:** классификация жанров GTZAN через openSMILE, stratified split, PCA, SVM, Logistic Regression и Decision Tree.
 - **Раздел 4:** MIR-система на easy_piano.wav: энергия -> максимумы/onset detection -> tempo estimation -> score -> MusicGen.
 - **Раздел 5:** нейросетевая классификация жанров на PyTorch: архитектура, loss, accuracy, Comet ML и confusion matrix без слабых пустых графиков.
@@ -35,7 +35,7 @@
 | Раздел | Тема | Что показано |
 | --- | --- | --- |
 | Раздел 1 | Работа со звуковыми сигналами | Синтез звука, гармоники, чтение MIDI, генерация простой мелодии |
-| Раздел 2 | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF |
+| Раздел 2 | Акустические признаки и pitch detection | Спектрограммы, mel-spectrogram, MFCC, ZCR/FFT/autocorrelation/AMDF и озвучка результата каждого метода |
 | Раздел 3 | Классическое ML для жанров | GTZAN, openSMILE, PCA, k-NN, Logistic Regression, SVM, Decision Tree |
 | Раздел 4 | MIR-системы | Onset detection, tempo estimation, beat tracking, Pop2Piano, MusicGen |
 | Раздел 5 | Нейросети для музыкальных данных | PyTorch, графики обучения, метрики, confusion matrix, checkpoint-и |
