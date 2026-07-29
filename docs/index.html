@@ -523,65 +523,49 @@
         id: "Раздел 2",
         title: "Признаки и pitch detection",
         color: "var(--teal)",
-        line: "Цель раздела - научиться описывать аудио численными признаками и находить высоту тона в одноголосных записях.",
+        line: "Цель раздела - извлечь высоту тона из монофонической флейты и сравнить четыре подхода: ZCR, FFT, autocorrelation и AMDF.",
         audio: [
-          ["piano.wav", "lab1-piano.wav"],
           ["flute.wav", "lab2-flute.wav"],
-          ["violin.wav", "lab2-violin.wav"]
+          ["Сгенерированный pitch флейты", "lab2-flute-pitch-autocorrelation.wav"]
         ],
         images: [
           {
             file: "lab2-output-03.png",
-            title: "Спектрограмма, mel и MFCC",
-            description: "Один аудиофрагмент рассматривается в частотной области: обычная спектрограмма, mel-шкала и MFCC показывают разные уровни описания тембра.",
+            title: "Флейта в частотной области",
+            description: "Перед pitch detection аудио описывается через спектрограмму, mel-представление и MFCC. Это показывает, где в сигнале живет частотная информация.",
             spotlight: true
           },
           {
-            file: "lab2-output-11.png",
-            title: "Фортепиано: pitch получился нестабильным",
-            description: "Для piano.wav методы расходятся: FFT дает медиану около 345 Hz, ZCR - около 545 Hz, autocorrelation - около 190 Hz. Это хороший пример, где один график без проверки методом может обмануть.",
-            audio: "lab1-piano.wav",
-            audioLabel: "Фортепиано",
-            spotlight: true
-          },
-          {
-            file: "lab2-output-15.png",
-            title: "Скрипка: сглаживание pitch",
-            description: "Для violin.wav после медианного фильтра траектория становится читаемее. FFT дает медиану около 237 Hz, autocorrelation - около 140 Hz: звук живой, поэтому оценка высоты плавает.",
-            audio: "lab2-violin.wav",
-            audioLabel: "Скрипка",
-            spotlight: true
-          },
-          {
-            file: "lab2-output-16.png",
-            title: "Флейта: лучший результат pitch detection",
-            description: "Для flute.wav после извлечения частоты получается самая устойчивая траектория: ZCR, FFT и autocorrelation сходятся примерно к 1.1 kHz. Это получилось лучше всего, потому что флейта здесь звучит монофонически: в каждый момент есть одна ведущая высота без аккордов и плотной смеси голосов.",
+            file: "lab2-output-10.png",
+            title: "ZCR: пересечения через ноль",
+            description: "ZCR оценивает период по расстоянию между zero-crossings. На флейте траектория получается читаемой, потому что сигнал монофонический и не содержит аккордовой смеси.",
             audio: "lab2-flute.wav",
             audioLabel: "Флейта",
             spotlight: true
           },
           {
-            file: "lab2-flute-pitch-sonification.svg",
-            title: "Флейта: сгенерированный pitch",
-            description: "Здесь pitch-траектория озвучена обратно как синусоидальный сигнал. Получается почти метрономически чистая высота: это слышимое подтверждение, что для монофонической флейты извлечение частоты сработало лучше всего.",
-            audio: "lab2-flute-pitch-autocorrelation.wav",
-            audioLabel: "Сгенерированный pitch флейты",
+            file: "lab2-output-13.png",
+            title: "FFT: максимум спектра",
+            description: "FFT ищет самую выраженную частоту в каждом окне. Для flute.wav результат близок к другим методам - около 1.1 kHz."
+          },
+          {
+            file: "lab2-output-16.png",
+            title: "Autocorrelation: лучшая траектория",
+            description: "Autocorrelation ищет повторяемость сигнала через лаг. На монофонической флейте она дает самую устойчивую линию pitch после медианного фильтра.",
             spotlight: true
           },
           {
-            file: "lab2-output-08.png",
-            title: "ZCR",
-            description: "ZCR считает пересечения сигнала через ноль. Метод быстрый, но чувствителен к форме волны и обертонам, поэтому для piano.wav завышает оценку pitch."
-          },
-          {
-            file: "lab2-output-13.png",
-            title: "FFT",
-            description: "FFT ищет максимум в спектре окна. На флейте максимум хорошо соответствует основной частоте, поэтому результат близок к другим методам - около 1.12 kHz."
-          },
-          {
             file: "lab2-output-18.png",
-            title: "AMDF",
-            description: "AMDF сравнивает сигнал с его сдвинутой копией. Для flute.wav медиана получается около 832 Hz: метод дает результат, но хуже совпадает с остальными оценками."
+            title: "AMDF: минимум различий",
+            description: "AMDF сравнивает сигнал со сдвинутой копией. Метод тоже извлекает pitch, но для флейты дает менее стабильную оценку, чем autocorrelation и FFT."
+          },
+          {
+            file: "lab2-flute-pitch-sonification.svg",
+            title: "Итог: pitch флейты озвучен обратно",
+            description: "Извлеченная pitch-траектория превращена обратно в синусоидальный звук. Это слышимое подтверждение результата: для монофонической флейты высота извлекается лучше всего.",
+            audio: "lab2-flute-pitch-autocorrelation.wav",
+            audioLabel: "Сгенерированный pitch флейты",
+            spotlight: true
           }
         ]
       },
@@ -595,7 +579,7 @@
         ],
         images: [
           {
-            file: "lab3-output-11.png",
+            file: "lab3-output-01.png",
             title: "Баланс жанров в train/test",
             description: "GTZAN содержит 10 жанров. Перед обучением проверяется разбиение, чтобы модель не выигрывала за счет перекоса классов.",
             audio: "lab3-gtzan-sample.wav",
@@ -603,9 +587,9 @@
             spotlight: true
           },
           {
-            file: "lab3-output-01.png",
-            title: "PCA для признаков openSMILE",
-            description: "openSMILE извлекает много акустических признаков. PCA сжимает пространство и помогает понять, сколько информации сохраняется."
+            file: "lab3-output-02.png",
+            title: "Стратифицированное разбиение",
+            description: "После stratified split жанры распределены ровнее между train и test. Это важнее красивой модели: иначе метрики легко становятся нечестными."
           },
           {
             file: "lab3-output-03.png",
@@ -624,9 +608,9 @@
             description: "Дерево решений легче интерпретировать, но на музыкальных признаках оно чаще ошибается из-за сложных границ между жанрами."
           },
           {
-            file: "lab3-output-13.png",
-            title: "Подбор параметров",
-            description: "После GridSearch сравниваются улучшенные модели: цель - поднять качество и увидеть, какие жанры остаются сложными."
+            file: "lab3-output-04.png",
+            title: "SVM + PCA",
+            description: "PCA используется уже внутри эксперимента: признаки openSMILE сжимаются, затем SVM классифицирует жанры в уменьшенном пространстве."
           }
         ]
       },
@@ -634,54 +618,47 @@
         id: "Раздел 4",
         title: "MIR-система и генерация",
         color: "var(--rose)",
-        line: "Цель раздела - собрать мини-MIR-систему: взять аудио, найти музыкальные события, оценить ритм и высоту, получить нотное представление и перейти к генерации.",
+        line: "Цель раздела - на easy_piano.wav показать путь от энергии сигнала к onset detection, tempo estimation, нотной записи и генерации музыки.",
         audio: [
-          ["vocal.wav", "lab4-vocal.wav"],
-          ["easy_piano.wav", "lab4-easy-piano.wav"],
-          ["GAN-сэмпл", "c-rnn-gan-sample11.mp3"]
+          ["easy_piano.wav", "lab4-easy-piano.wav"]
         ],
         images: [
           {
-            file: "lab4-markdown-01.png",
-            title: "1. Вход: аудио для транскрипции",
-            description: "Берется звуковой фрагмент, который дальше нужно разложить на музыкальные события: где начинаются звуки, какой у них ритм и какая высота.",
-            audio: "lab4-vocal.wav",
-            audioLabel: "Вокальный фрагмент",
+            file: "lab4-output-02.png",
+            title: "1. Энергия сигнала",
+            description: "Входной easy_piano.wav переводится в кривую энергии. Дальше именно по этой кривой ищутся моменты, где начинается новый звук.",
+            audio: "lab4-easy-piano.wav",
+            audioLabel: "easy_piano.wav",
             spotlight: true
           },
           {
             file: "lab4-output-07.png",
-            title: "2. Onset detection: найдены атаки",
-            description: "Сначала считается энергия сигнала, затем логарифм энергии и производная. Пики после half-wave rectification становятся моментами onset: в ноутбуке получился список времен атак вроде 0.25, 0.50, 0.75, 1.00 секунд.",
+            title: "2. Максимумы энергии и onset detection",
+            description: "После log-energy и производной остаются пики: они и становятся onset-событиями. В ноутбуке получились времена атак вроде 0.25, 0.50, 0.75, 1.00 секунд.",
             audio: "lab4-onset-clicks.wav",
-            audioLabel: "Клики onset detection"
-          },
-          {
-            file: "lab4-output-08.png",
-            title: "3. Tempo estimation и beat tracking",
-            description: "По onset-событиям оценивается регулярная пульсация. В ноутбуке tempo estimation выводит значение 15.0, а beat tracking добавляет клики по найденной сетке долей.",
-            audio: "lab4-beat-clicks.wav",
-            audioLabel: "Метроном beat tracking"
-          },
-          {
-            file: "lab4-pitch-sonification.svg",
-            title: "4. Pitch detection",
-            description: "Пустую autocorrelation-картинку убрал из витрины. Вместо нее показана и озвучена итоговая pitch-траектория: сигнал режется на окна, оценивается высота, затем результат синтезируется обратно в звук.",
-            audio: "lab4-pitch-sonification.wav",
-            audioLabel: "Озвученная pitch-траектория"
-          },
-          {
-            file: "lab4-output-10.png",
-            title: "5. Нотное представление",
-            description: "Через music21 результат собирается в score. Это ключевой переход: была волна, а стала музыкальная структура, которую можно читать, редактировать и использовать дальше.",
+            audioLabel: "easy_piano + onset-клики",
             spotlight: true
           },
           {
-            file: "lab4-markdown-02.png",
-            title: "6. Генерация: Pop2Piano и MusicGen",
-            description: "Финальная часть исследует генеративные модели: Pop2Piano делает фортепианную версию, а MusicGen/c-RNN-GAN показывают переход от анализа музыки к созданию нового аудио.",
-            audio: "lab4-easy-piano.wav",
-            audioLabel: "Фортепианная версия"
+            file: "lab4-output-08.png",
+            title: "3. Tempo estimation",
+            description: "По найденным onset-событиям строится регулярная сетка долей. На аудио слышен метроном beat tracking поверх easy_piano.",
+            audio: "lab4-beat-clicks.wav",
+            audioLabel: "easy_piano + метроном"
+          },
+          {
+            file: "lab4-output-10.png",
+            title: "4. Что получилось из нотной записи",
+            description: "Через music21 события собираются в score. Это уже не аудиоволна, а нотное представление, которое можно читать и использовать для дальнейшей генерации.",
+            spotlight: true
+          },
+          {
+            file: "lab4-musicgen-waveform.svg",
+            title: "5. Генерация музыки",
+            description: "Финальная часть переходит от анализа к генерации: MusicGen создает новый аудиофрагмент, а Pop2Piano/c-RNN-GAN показывают другие варианты генеративного MIR.",
+            audio: "lab4-musicgen-sample.wav",
+            audioLabel: "MusicGen sample",
+            spotlight: true
           }
         ]
       },
